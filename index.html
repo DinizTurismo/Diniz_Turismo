@@ -60,19 +60,20 @@ nav a:hover{color:#0a9396}
 .card.selecionado .btn-select{border-color:#0a9396;background:rgba(10,147,150,0.06);color:#0a9396}
 .card.selecionado .btn-select .icon-check{background:#0a9396;border-color:#0a9396;color:#fff}
 .card-actions-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.card-data-wrap{flex:1;display:flex;align-items:center;gap:5px;min-width:120px}
-.card-data-label{font-size:.68rem;font-weight:600;color:#495057;text-transform:uppercase;letter-spacing:.2px;white-space:nowrap}
-.card-data-input{border:1.5px solid #e0e0e0;border-radius:8px;padding:4px 8px;font-family:'Inter',sans-serif;font-size:.74rem;color:#1a1a2e;background:#fafafa;outline:none;transition:border .2s;flex:1;min-width:0;cursor:pointer}
-.card-data-input:focus{border-color:#0a9396;background:#fff}
 .periodo-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden}
-.periodo-btn{padding:4px 12px;border:none;background:#fafafa;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;color:#6c757d;cursor:pointer;transition:all .15s}
+.periodo-btn{padding:4px 10px;border:none;background:#fafafa;font-family:'Inter',sans-serif;font-size:.65rem;font-weight:600;color:#6c757d;cursor:pointer;transition:all .15s}
 .periodo-btn.ativo{background:#0a9396;color:#fff}
 .periodo-btn:not(.ativo):hover{background:#e9ecef}
 .periodo-btn+.periodo-btn{border-left:1.5px solid #e0e0e0}
-.pessoas-card-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden}
-.pessoas-card-control button{width:28px;height:28px;border:none;background:#fafafa;font-size:.85rem;font-weight:700;color:#0a9396;cursor:pointer;transition:background .15s;line-height:1}
-.pessoas-card-control button:hover{background:#e9ecef}
-.pessoas-card-control span{width:30px;text-align:center;font-weight:700;font-size:.78rem;color:#1a1a2e;line-height:28px}
+/* CONTROLES COMPACTOS */
+.compact-controls{display:flex;align-items:center;gap:6px;flex:1;flex-wrap:nowrap;min-width:0}
+.date-compact{flex:1;min-width:0;border:1.5px solid #e0e0e0;border-radius:8px;padding:4px 6px;font-family:'Inter',sans-serif;font-size:.68rem;color:#1a1a2e;background:#fafafa;outline:none;transition:border .2s;cursor:pointer;max-width:130px;width:auto}
+.date-compact:focus{border-color:#0a9396;background:#fff}
+.people-compact{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden;flex-shrink:0}
+.people-compact button{width:24px;height:24px;border:none;background:#fafafa;font-size:.75rem;font-weight:700;color:#0a9396;cursor:pointer;transition:background .15s;line-height:1;display:flex;align-items:center;justify-content:center}
+.people-compact button:hover{background:#e9ecef}
+.people-compact span{width:26px;text-align:center;font-weight:700;font-size:.7rem;color:#1a1a2e;line-height:24px}
+.compact-icon{font-size:.7rem;opacity:.6;flex-shrink:0}
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #f0f0f0}
 .card-footer .info{display:flex;align-items:center;gap:5px;font-size:.72rem;color:#6c757d}
 .card-footer .preco{font-size:1.05rem;font-weight:700;color:#0a9396}
@@ -138,7 +139,6 @@ footer strong{color:rgba(255,255,255,.8)}
 @media(max-width:768px){
 .hero h1{font-size:2.2rem}.hero p{font-size:.95rem}.hero{height:90vh;min-height:500px}
 .grid-passeios{grid-template-columns:1fr}
-.card-actions-row{flex-direction:column;align-items:stretch}.periodo-control{align-self:flex-start}
 .detalhe-hero{height:240px}
 .galeria{grid-template-columns:repeat(2,1fr)}.galeria-item{height:90px}
 .detalhe-info{grid-template-columns:repeat(2,1fr)}
@@ -155,6 +155,8 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}.btn-nav{padding:6px 1
 .contato-section{padding:40px 5% 120px}
 .lightbox-nav{width:36px;height:36px;font-size:1.2rem}
 .lightbox-nav.anterior{left:4px}.lightbox-nav.proximo{right:4px}
+.compact-controls{flex-wrap:wrap}
+.date-compact{max-width:100%}
 }
 </style>
 </head>
@@ -368,10 +370,14 @@ html += '<div class="local">📍 ' + locais[i] + '</div>';
 html += '<div class="resumo-text">' + descs_curtas[i] + '</div>';
 html += '<div class="card-actions">';
 html += '<button class="btn-select" id="btn-select-' + i + '" onclick="togglePasseio(' + i + ')"><span class="icon-check" id="icon-check-' + i + '">✓</span> <span id="btn-text-' + i + '">Selecionar</span></button>';
+
+/* LINHA ÚNICA: data + pessoas + período */
 html += '<div class="card-actions-row">';
-html += '<div class="card-data-wrap">';
-html += '<span class="card-data-label">📅 Data</span>';
-html += '<input type="date" class="card-data-input" id="data-' + i + '" min="' + minDate + '" value="' + minDate + '" onchange="atualizarData(' + i + ')">';
+html += '<div class="compact-controls">';
+html += '<span class="compact-icon">📅</span>';
+html += '<input type="date" class="date-compact" id="data-' + i + '" min="' + minDate + '" value="' + minDate + '" onchange="atualizarData(' + i + ')">';
+html += '<span class="compact-icon">👥</span>';
+html += '<div class="people-compact"><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',-1)">−</button><span id="pessoas-' + i + '">1</span><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',1)">+</button></div>';
 html += '</div>';
 if(temPeriodo[i]) {
 html += '<div class="periodo-control" id="periodo-control-' + i + '">';
@@ -380,10 +386,7 @@ html += '<button class="periodo-btn" id="periodo-tarde-' + i + '" onclick="event
 html += '</div>';
 }
 html += '</div>';
-html += '<div class="card-actions-row">';
-html += '<span class="card-data-label" style="font-size:.68rem;font-weight:600;color:#495057;text-transform:uppercase;letter-spacing:.2px">👥 Pessoas</span>';
-html += '<div class="pessoas-card-control"><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',-1)">−</button><span id="pessoas-' + i + '">1</span><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',1)">+</button></div>';
-html += '</div>';
+
 html += '</div>';
 html += '<div class="card-footer">';
 html += '<div class="info">⏱ ' + duracoes[i] + '</div>';
@@ -525,9 +528,8 @@ function atualizarResumo() {
 var total = 0;
 var count = 0;
 var totalPessoasGeral = 0;
-var msg = "Olá! Gostaria de verificar a disponibilidade para os seguintes passeios:%0A%0A";
+var msg = "Olá! Gostaria de solicitar um orçamento para os seguintes passeios:%0A%0A";
 msg += "Passeios selecionados:%0A";
-
 for(var i=0;i<nomes.length;i++) {
 if(selecionados[i]) {
 var qtd = pessoas[i] || 1;
@@ -548,21 +550,17 @@ msg += "   👥 " + qtd + " pessoa(s)%0A";
 msg += "   💵 R$ " + valPorPessoa.toFixed(2).replace(".",",") + "/pessoa (Total: R$ " + valTotal.toFixed(2).replace(".",",") + ")%0A%0A";
 }
 }
-
 msg += "💰 Valor total: R$ " + total.toFixed(2).replace(".",",") + "%0A%0A";
 msg += "Poderia me enviar mais informações sobre disponibilidade e formas de pagamento?";
-
 var bar = document.getElementById("orcamentoBar");
 var btnWA = document.getElementById("btn-wa-orcamento");
 var btnFloat = document.getElementById("btn-wa-float");
 var totalItens = document.getElementById("total-itens");
 var totalValor = document.getElementById("total-valor");
 var totalPessoasEl = document.getElementById("total-pessoas");
-
 totalItens.textContent = count;
 totalValor.textContent = "R$ " + total.toFixed(2).replace(".",",");
 totalPessoasEl.textContent = totalPessoasGeral;
-
 if(count > 0) {
 bar.classList.add("visivel");
 btnWA.href = "https://wa.me/5598970141256?text=" + msg;
@@ -573,7 +571,6 @@ bar.classList.remove("visivel");
 btnFloat.style.display = "flex";
 }
 }
-
 renderizarHome();
 atualizarResumo();
 </script>
