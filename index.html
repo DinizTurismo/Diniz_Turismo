@@ -7,69 +7,107 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff}
-a{text-decoration:none;color:inherit}
-header{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);z-index:1000;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.05)}
-.logo{font-size:1.3rem;font-weight:800;color:#0a9396}
-.logo span{color:#e9c46a}
-nav a{margin-left:28px;font-weight:500;font-size:0.9rem;color:#1a1a2e;transition:color .2s}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fafafa;overflow-x:hidden}
+
+/* █ FUNDO SUTIL DE DUNAS */
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:url('https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=1920&q=10') center/cover no-repeat;opacity:0.04;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 50% 0%,rgba(10,147,150,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+
+/* █ HEADER PROFISSIONAL */
+header{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);z-index:1000;padding:12px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.06)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-img{width:38px;height:38px;border-radius:8px;object-fit:cover}
+.logo-text{font-size:1.15rem;font-weight:800;color:#0a9396;line-height:1.2}
+.logo-text small{display:block;font-size:0.6rem;font-weight:500;color:#6c757d;letter-spacing:1px;text-transform:uppercase}
+.logo-text span{color:#e9c46a}
+nav{display:flex;align-items:center;gap:6px}
+nav a{margin-left:18px;font-weight:500;font-size:0.85rem;color:#495057;transition:color .2s;text-decoration:none}
 nav a:hover{color:#0a9396}
-.btn-nav{background:#0a9396;color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:600}
+.btn-nav{background:#0a9396;color:#fff!important;padding:8px 18px;border-radius:8px;font-weight:600;font-size:0.85rem}
 .btn-nav:hover{background:#087d80!important}
-.hero{min-height:100vh;background:linear-gradient(135deg,#0a9396 0%,#005f73 50%,#001219 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px}
-.hero h1{font-size:3rem;font-weight:900;color:#fff;margin-bottom:12px}
+
+/* █ HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#0a9396 0%,#005f73 40%,#001219 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden;z-index:1}
+.hero::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:200px;background:linear-gradient(to top,#fafafa,transparent);z-index:1}
+.hero::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200"><path d="M0,100 C200,30 400,150 600,80 C800,10 1000,120 1200,60 L1200,200 L0,200 Z" fill="rgba(255,255,255,0.03)"/></svg>') bottom/100% 200px no-repeat;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero h1{font-size:3rem;font-weight:900;color:#fff;margin-bottom:12px;line-height:1.15}
 .hero h1 span{color:#e9c46a}
-.hero p{font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:8px;line-height:1.6}
-.hero .sub{font-size:.95rem;color:rgba(255,255,255,.6);margin-bottom:32px}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,.85);margin-bottom:6px;line-height:1.6}
+.hero .sub{font-size:.9rem;color:rgba(255,255,255,.55);margin-bottom:32px}
 .hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{padding:14px 34px;border-radius:10px;font-weight:600;font-size:1rem;display:inline-block;transition:all .3s}
+.btn{padding:14px 34px;border-radius:10px;font-weight:600;font-size:1rem;display:inline-block;transition:all .3s;text-decoration:none}
 .btn-primary{background:#e9c46a;color:#1a1a2e}
-.btn-primary:hover{background:#d4a843;transform:translateY(-2px)}
-.btn-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
-.btn-secondary:hover{border-color:#e9c46a;color:#e9c46a;transform:translateY(-2px)}
-.passeios-section{padding:80px 5%;max-width:1200px;margin:0 auto}
-.section-title{text-align:center;font-size:2rem;font-weight:800;margin-bottom:8px}
-.section-sub{text-align:center;color:#6c757d;font-size:.95rem;margin-bottom:48px}
-.count-badge{display:inline-block;background:#f0fdfa;color:#0a9396;padding:4px 16px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:12px}
-.grid-passeios{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
-.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.06);transition:all .3s;border:1px solid #f0f0f0}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
-.card-img{height:200px;background-size:cover;background-position:center;position:relative}
-.card-img .badge{position:absolute;top:16px;left:16px;background:#e9c46a;color:#1a1a2e;padding:4px 12px;border-radius:6px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.card-body{padding:20px 24px 24px}
-.card-body h3{font-size:1.15rem;font-weight:700;margin-bottom:6px;color:#1a1a2e}
-.card-body .local{font-size:.8rem;color:#6c757d;margin-bottom:10px}
-.card-body p{font-size:.88rem;color:#6c757d;line-height:1.5;margin-bottom:16px}
+.btn-primary:hover{background:#d4a843;transform:translateY(-2px);box-shadow:0 8px 24px rgba(233,196,106,0.3)}
+.btn-secondary{background:rgba(255,255,255,0.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);backdrop-filter:blur(4px)}
+.btn-secondary:hover{background:rgba(255,255,255,0.2);border-color:#e9c46a;color:#e9c46a;transform:translateY(-2px)}
+
+/* █ SEÇÃO PASSEIOS */
+.passeios-section{padding:100px 5% 80px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.section-header{text-align:center;margin-bottom:48px}
+.section-header .count-badge{display:inline-block;background:rgba(10,147,150,0.08);color:#0a9396;padding:5px 18px;border-radius:20px;font-size:.78rem;font-weight:600;margin-bottom:12px;letter-spacing:.3px}
+.section-title{font-size:2rem;font-weight:800;color:#1a1a2e;margin-bottom:8px}
+.section-sub{color:#6c757d;font-size:.95rem}
+
+.grid-passeios{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px}
+
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.04);transition:all .4s cubic-bezier(.25,.46,.45,.94);border:1px solid rgba(0,0,0,.04)}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.08)}
+.card-img{height:220px;background-size:cover;background-position:center;position:relative}
+.card-img .badge{position:absolute;top:16px;left:16px;background:#e9c46a;color:#1a1a2e;padding:5px 14px;border-radius:6px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+.card-img .overlay{position:absolute;bottom:0;left:0;width:100%;height:60%;background:linear-gradient(to top,rgba(0,0,0,0.05),transparent)}
+.card-body{padding:22px 24px 24px}
+.card-body h3{font-size:1.1rem;font-weight:700;margin-bottom:4px;color:#1a1a2e}
+.card-body .local{font-size:.78rem;color:#6c757d;margin-bottom:10px;display:flex;align-items:center;gap:4px}
+.card-body p{font-size:.85rem;color:#6c757d;line-height:1.55;margin-bottom:16px}
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid #f0f0f0}
-.card-footer .info{display:flex;align-items:center;gap:6px;font-size:.8rem;color:#6c757d}
-.card-footer .preco{font-size:1.15rem;font-weight:700;color:#0a9396}
-.card-footer .preco small{font-weight:400;font-size:.75rem;color:#6c757d}
-.transfer-section{background:#f8f9fa;padding:60px 5%;text-align:center}
-.transfer-section p{color:#6c757d;margin-bottom:24px}
-.btn-transfer{background:#0a9396;color:#fff;padding:14px 36px;border-radius:10px;font-weight:600;display:inline-block}
-.btn-transfer:hover{background:#087d80}
-.contato-section{text-align:center;padding:60px 5%}
-.contato-section h2{font-size:1.6rem;font-weight:800;margin-bottom:24px}
-.contato-info{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:24px}
+.card-footer .info{display:flex;align-items:center;gap:5px;font-size:.78rem;color:#6c757d}
+.card-footer .preco{font-size:1.2rem;font-weight:700;color:#0a9396}
+.card-footer .preco small{font-weight:400;font-size:.68rem;color:#6c757d}
+
+/* █ SEÇÃO TRANSFER */
+.transfer-section{background:#fff;padding:70px 5%;text-align:center;position:relative;z-index:1;border-top:1px solid rgba(0,0,0,.03);border-bottom:1px solid rgba(0,0,0,.03)}
+.transfer-section h2{font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.transfer-section p{color:#6c757d;margin-bottom:28px;font-size:.95rem}
+.btn-transfer{background:#0a9396;color:#fff;padding:14px 36px;border-radius:10px;font-weight:600;display:inline-block;text-decoration:none;transition:all .3s}
+.btn-transfer:hover{background:#087d80;transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,147,150,0.3)}
+
+/* █ CONTATO */
+.contato-section{text-align:center;padding:70px 5%;position:relative;z-index:1}
+.contato-section h2{font-size:1.5rem;font-weight:800;margin-bottom:28px}
+.contato-grid{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:28px}
 .contato-item{text-align:center}
-.contato-item .icone{font-size:1.8rem;margin-bottom:6px}
-.contato-item p{font-weight:600;font-size:.9rem}
+.contato-item .icone{width:48px;height:48px;background:rgba(10,147,150,0.06);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 10px}
+.contato-item p{font-weight:600;font-size:.88rem;color:#1a1a2e}
 .contato-item small{color:#6c757d;font-size:.8rem}
-.whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:14px 32px;border-radius:10px;font-weight:600;transition:background .3s}
-.whatsapp-btn:hover{background:#1da851}
-footer{background:#001219;color:rgba(255,255,255,.7);text-align:center;padding:24px 5%;font-size:.82rem}
+.whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:14px 32px;border-radius:10px;font-weight:600;text-decoration:none;transition:all .3s}
+.whatsapp-btn:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3)}
+
+/* █ RODAPÉ */
+footer{background:#001219;color:rgba(255,255,255,.6);text-align:center;padding:28px 5%;font-size:.8rem;position:relative;z-index:1}
+footer strong{color:rgba(255,255,255,.8)}
+
+/* █ RESPONSIVO */
 @media(max-width:768px){
 .hero h1{font-size:2rem}
-.hero p{font-size:1rem}
+.hero p{font-size:.95rem}
 .grid-passeios{grid-template-columns:1fr}
-.card-footer{flex-wrap:wrap;gap:10px}
-nav a{margin-left:14px;font-size:.78rem}
+.card-footer{flex-wrap:wrap;gap:8px}
+nav{gap:2px}
+nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
+.btn-nav{padding:6px 12px;font-size:.72rem}
+.logo-img{width:30px;height:30px}
+.logo-text{font-size:1rem}
+.passeios-section{padding:80px 5% 60px}
 }
 </style>
 </head>
 <body>
 <header>
-<div class="logo">Lençóis <span>Aventura</span></div>
+<a href="#" class="logo">
+<img src="https://raw.githubusercontent.com/DinizTurismo/Diniz_Turismo/main/Diniz_Turismo.jpg" alt="Diniz Turismo" class="logo-img" onerror="this.style.display='none'">
+<div class="logo-text">Diniz <span>Turismo</span><small>Agência de Turismo</small></div>
+</a>
 <nav>
 <a href="#passeios">Passeios</a>
 <a href="#transfer">Transfer</a>
@@ -77,37 +115,46 @@ nav a{margin-left:14px;font-size:.78rem}
 <a href="https://wa.me/5598970141256" class="btn-nav">Reservar</a>
 </nav>
 </header>
+
 <section class="hero">
-<div>
+<div class="hero-content">
 <h1>Descubra os <span>Lençóis Maranhenses</span></h1>
 <p>Passeios incríveis em Barreirinhas com conforto, segurança e os melhores preços.</p>
-<p class="sub">Explore lagoas cristalinas, dunas, rios e muito mais</p>
+<p class="sub">Explore lagoas cristalinas, dunas intermináveis e paisagens que vão ficar pra sempre na sua memória</p>
 <div class="hero-buttons">
 <a href="#passeios" class="btn btn-primary">Ver Passeios</a>
 <a href="https://wa.me/5598970141256" class="btn btn-secondary">Fale Conosco</a>
 </div>
 </div>
 </section>
+
 <section class="passeios-section" id="passeios">
-<div class="count-badge">6 passeios</div>
+<div class="section-header">
+<div class="count-badge">✨ 6 passeios imperdíveis</div>
 <h2 class="section-title">Passeios em Barreirinhas</h2>
 <p class="section-sub">Conheça as melhores experiências nos Lençóis Maranhenses</p>
+</div>
 <div class="grid-passeios" id="gridPasseios"></div>
 </section>
+
 <section class="transfer-section" id="transfer">
+<h2>🚐 Transfers para Barreirinhas e Jericoacoara</h2>
 <p>Privativos ou compartilhados. Reserve online com praticidade e confirmação rápida.</p>
 <a href="https://wa.me/5598970141256" class="btn-transfer">Solicitar Orçamento</a>
 </section>
+
 <section class="contato-section" id="contato">
-<h2>Entre em Contato</h2>
-<div class="contato-info">
+<h2>📬 Entre em Contato</h2>
+<div class="contato-grid">
 <div class="contato-item"><div class="icone">📱</div><p>WhatsApp</p><small>(98) 98191-9516</small></div>
 <div class="contato-item"><div class="icone">📧</div><p>E-mail</p><small>mauricio.diniz@live.com</small></div>
 <div class="contato-item"><div class="icone">📍</div><p>Barreirinhas</p><small>MA - Brasil</small></div>
 </div>
-<a href="https://wa.me/5598970141256" class="whatsapp-btn">💬 Fale Conosco</a>
+<a href="https://wa.me/5598970141256" class="whatsapp-btn">💬 Fale Conosco no WhatsApp</a>
 </section>
-<footer>© 2026 Diniz Turismo — Agência de Turismo em Barreirinhas, MA</footer>
+
+<footer>© 2026 <strong>Diniz Turismo</strong> — Agência de Turismo em Barreirinhas, MA</footer>
+
 <script>
 var base = "https://raw.githubusercontent.com/DinizTurismo/Diniz_Turismo/main/";
 var fotos = [
@@ -118,16 +165,16 @@ base + "quadriciclo.jpg",
 base + "cabure.jpg",
 base + "cardosa.jpg"
 ];
-var nomes = ["Circuito Lagoa Bonita","Circuito Lagoa Azul","Atins","Trilha de Quadriciclo","Circuito Cabure Rio Preguicas","Boia Cross Cardosa"];
+var nomes = ["Circuito Lagoa Bonita","Circuito Lagoa Azul","Atins","Trilha de Quadriciclo","Circuito Caburé Rio Preguiças","Boia Cross Cardosa"];
 var locais = ["Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA"];
-var descs = ["Um dos mais populares roteiros de Barreirinhas, o Circuito da Lagoa Bonita esta entre os mais belos passeios dos Lencois.","O passeio para os Grandes Lencois e um dos mais populares da regiao, com paisagens paradisiacas.","Conheca esse paraiso natural, conhecido como a Jericoacoara Maranhense, porta de entrada do Parque Nacional.","Passeio repleto de aventura e emocao para quem busca explorar a regiao sobre rodas.","Passeio de lancha voadeira percorrendo o Rio Preguicas ate a praia de Cabure.","Aguas cristalinas cercado por buritizais, o povoado de Cardosa e uma das atracoes naturais da regiao."];
+var descs = ["Um dos mais populares roteiros de Barreirinhas, o Circuito da Lagoa Bonita está entre os mais belos passeios dos Lençóis.","O passeio para os Grandes Lençóis é um dos mais populares da região, com paisagens paradisíacas.","Conheça esse paraíso natural, conhecido como a Jericoacoara Maranhense, porta de entrada do Parque Nacional.","Passeio repleto de aventura e emoção para quem busca explorar a região sobre rodas.","Passeio de lancha voadeira percorrendo o Rio Preguiças até a praia de Caburé.","Águas cristalinas cercado por buritizais, o povoado de Cardosa é uma das atrações naturais da região."];
 var duracoes = ["4 horas","4 horas","7 horas","8 horas","7 horas","3 horas"];
 var precos = [150,120,200,550,150,110];
 var tipos = ["Por pessoa","Por pessoa","Por adulto","Por quadriciclo","Por adulto","Por adulto"];
 var html = "";
 for(var i=0;i<nomes.length;i++){
 html += '<div class="card">';
-html += '<div class="card-img" style="background-image:url(' + fotos[i] + ')"><span class="badge">Destaque</span></div>';
+html += '<div class="card-img" style="background-image:url(' + fotos[i] + ')"><span class="badge">Destaque</span><div class="overlay"></div></div>';
 html += '<div class="card-body">';
 html += '<h3>' + nomes[i] + '</h3>';
 html += '<div class="local">📍 ' + locais[i] + '</div>';
