@@ -9,7 +9,6 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#f8f9fa}
 a{text-decoration:none;color:inherit}
-
 header{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);z-index:1000;padding:12px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.05)}
 .logo{display:flex;align-items:center;gap:10px}
 .logo-img{width:36px;height:36px;border-radius:8px;object-fit:cover}
@@ -21,7 +20,6 @@ nav a{margin-left:16px;font-weight:500;font-size:0.85rem;color:#495057;transitio
 nav a:hover{color:#0a9396}
 .btn-nav{background:#0a9396;color:#fff!important;padding:8px 18px;border-radius:8px;font-weight:600;font-size:0.85rem}
 .btn-nav:hover{background:#087d80!important}
-
 .hero{width:100%;height:100vh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
 .hero-bg::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.7) 100%)}
@@ -36,13 +34,11 @@ nav a:hover{color:#0a9396}
 .btn-hero-primary:hover{background:#d4a843;transform:translateY(-2px);box-shadow:0 8px 24px rgba(233,196,106,0.3)}
 .btn-hero-secondary{background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(4px)}
 .btn-hero-secondary:hover{background:rgba(255,255,255,0.2);border-color:#e9c46a;color:#e9c46a;transform:translateY(-2px)}
-
 .passeios-section{padding:100px 5% 120px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .section-header{text-align:center;margin-bottom:36px}
 .section-header .count-badge{display:inline-block;background:rgba(10,147,150,0.08);color:#0a9396;padding:5px 18px;border-radius:20px;font-size:.78rem;font-weight:600;margin-bottom:12px;letter-spacing:.3px}
 .section-title{font-size:2rem;font-weight:800;color:#1a1a2e;margin-bottom:8px}
 .section-sub{color:#6c757d;font-size:.95rem}
-
 .config-bar{background:#fff;border-radius:14px;padding:20px 24px;margin-bottom:32px;box-shadow:0 2px 16px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04);display:flex;flex-wrap:wrap;align-items:center;gap:24px}
 .config-item{display:flex;align-items:center;gap:10px}
 .config-label{font-size:.8rem;font-weight:600;color:#495057;text-transform:uppercase;letter-spacing:.5px}
@@ -55,33 +51,39 @@ nav a:hover{color:#0a9396}
 .config-resumo .total-valor{font-size:1.2rem;font-weight:800;color:#0a9396}
 
 .grid-passeios{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
-
-/* CARD REDESENHADO */
 .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:all .4s cubic-bezier(.25,.46,.45,.94);border:2px solid #f0f0f0}
 .card.selecionado{border-color:#0a9396;box-shadow:0 8px 32px rgba(10,147,150,0.12)}
-
 .card-img{height:180px;background-size:cover;background-position:center;position:relative}
 .card-img .badge{position:absolute;top:14px;left:14px;background:#e9c46a;color:#1a1a2e;padding:4px 12px;border-radius:6px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-
 .card-body{padding:18px 20px 16px}
 .card-body h3{font-size:1rem;font-weight:700;margin-bottom:2px;color:#1a1a2e}
 .card-body .local{font-size:.76rem;color:#6c757d;margin-bottom:8px;display:flex;align-items:center;gap:4px}
 .card-body p{font-size:.82rem;color:#6c757d;line-height:1.45;margin-bottom:12px}
 
-/* NOVO: AÇÃO UNIFICADA */
-.card-actions{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
-.card-data-wrap{flex:1;display:flex;align-items:center;gap:6px;min-width:140px}
+/* AÇÕES DO CARD */
+.card-actions{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+
+/* BOTÃO DE SELEÇÃO - PRIMEIRO */
+.btn-select{display:flex;align-items:center;justify-content:center;gap:8px;padding:9px 16px;border-radius:8px;font-weight:600;font-size:.8rem;border:1.5px solid #e0e0e0;background:#fafafa;color:#6c757d;cursor:pointer;transition:all .2s;user-select:none;width:100%}
+.btn-select:hover{border-color:#0a9396;color:#0a9396;background:rgba(10,147,150,0.04)}
+.btn-select .icon-check{width:18px;height:18px;border-radius:4px;border:1.5px solid #adb5bd;display:flex;align-items:center;justify-content:center;font-size:.6rem;transition:all .2s;flex-shrink:0}
+.card.selecionado .btn-select{border-color:#0a9396;background:rgba(10,147,150,0.06);color:#0a9396}
+.card.selecionado .btn-select .icon-check{background:#0a9396;border-color:#0a9396;color:#fff}
+
+/* LINHA INFERIOR: DATA + PERÍODO */
+.card-actions-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-data-wrap{flex:1;display:flex;align-items:center;gap:6px;min-width:130px}
 .card-data-label{font-size:.7rem;font-weight:600;color:#495057;text-transform:uppercase;letter-spacing:.2px;white-space:nowrap}
-.card-data-input{border:1.5px solid #e0e0e0;border-radius:8px;padding:5px 10px;font-family:'Inter',sans-serif;font-size:.76rem;color:#1a1a2e;background:#f8f9fa;outline:none;transition:border .2s;flex:1;min-width:0;cursor:pointer}
+.card-data-input{border:1.5px solid #e0e0e0;border-radius:8px;padding:5px 10px;font-family:'Inter',sans-serif;font-size:.76rem;color:#1a1a2e;background:#fafafa;outline:none;transition:border .2s;flex:1;min-width:0;cursor:pointer}
 .card-data-input:focus{border-color:#0a9396;background:#fff}
 .card-data-input:disabled{opacity:.5;cursor:not-allowed}
 
-/* NOVO: TOGGLE DE SELEÇÃO */
-.btn-select{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;border-radius:8px;font-weight:600;font-size:.76rem;border:1.5px solid #e0e0e0;background:#fafafa;color:#6c757d;cursor:pointer;transition:all .2s;white-space:nowrap;user-select:none}
-.btn-select:hover{border-color:#0a9396;color:#0a9396;background:rgba(10,147,150,0.04)}
-.btn-select .icon-check{width:17px;height:17px;border-radius:4px;border:1.5px solid #adb5bd;display:flex;align-items:center;justify-content:center;font-size:.65rem;transition:all .2s;flex-shrink:0}
-.card.selecionado .btn-select{border-color:#0a9396;background:rgba(10,147,150,0.06);color:#0a9396}
-.card.selecionado .btn-select .icon-check{background:#0a9396;border-color:#0a9396;color:#fff}
+/* SELETOR DE PERÍODO (MANHÃ/TARDE) - SÓ LAGOA BONITA */
+.periodo-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden}
+.periodo-btn{padding:5px 14px;border:none;background:#fafafa;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;color:#6c757d;cursor:pointer;transition:all .15s}
+.periodo-btn.ativo{background:#0a9396;color:#fff}
+.periodo-btn:not(.ativo):hover{background:#e9ecef}
+.periodo-btn+.periodo-btn{border-left:1.5px solid #e0e0e0}
 
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid #f0f0f0}
 .card-footer .info{display:flex;align-items:center;gap:5px;font-size:.74rem;color:#6c757d}
@@ -95,11 +97,9 @@ nav a:hover{color:#0a9396}
 .orcamento-bar .resumo-item strong{color:#0a9396;font-size:1rem}
 .btn-whatsapp-orcamento{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 28px;border-radius:10px;font-weight:600;font-size:.9rem;transition:all .3s;white-space:nowrap;text-decoration:none}
 .btn-whatsapp-orcamento:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3)}
-
 .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:12px 22px;border-radius:50px;font-weight:600;font-size:0.9rem;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all .3s;text-decoration:none}
 .whatsapp-float:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
 .whatsapp-float .icon{width:20px;height:20px}
-
 .contato-section{background:#fff;text-align:center;padding:70px 5% 100px;border-top:1px solid rgba(0,0,0,.03)}
 .contato-section h2{font-size:1.5rem;font-weight:800;margin-bottom:28px}
 .contato-grid{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:28px}
@@ -107,10 +107,8 @@ nav a:hover{color:#0a9396}
 .contato-item .icone{width:48px;height:48px;background:rgba(10,147,150,0.06);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 10px}
 .contato-item p{font-weight:600;font-size:.88rem;color:#1a1a2e}
 .contato-item small{color:#6c757d;font-size:.8rem}
-
 footer{background:#001219;color:rgba(255,255,255,.6);text-align:center;padding:28px 5%;font-size:.8rem}
 footer strong{color:rgba(255,255,255,.8)}
-
 @media(max-width:768px){
 .hero h1{font-size:2.2rem}
 .hero p{font-size:.95rem}
@@ -118,9 +116,8 @@ footer strong{color:rgba(255,255,255,.8)}
 .config-bar{flex-direction:column;align-items:stretch;gap:14px}
 .config-resumo{margin-left:0;justify-content:space-between}
 .grid-passeios{grid-template-columns:1fr}
-.card-actions{flex-direction:column;align-items:stretch}
-.card-data-wrap{min-width:0}
-.btn-select{justify-content:center;width:100%}
+.card-actions-row{flex-direction:column;align-items:stretch}
+.periodo-control{align-self:flex-start}
 nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
 .btn-nav{padding:6px 12px;font-size:.72rem}
 .logo-img{width:28px;height:28px}
@@ -135,7 +132,6 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
 </style>
 </head>
 <body>
-
 <header>
 <a href="#" class="logo">
 <img src="https://raw.githubusercontent.com/DinizTurismo/Diniz_Turismo/main/Diniz_Turismo.jpg" alt="" class="logo-img" onerror="this.style.display='none'">
@@ -149,7 +145,7 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
 </header>
 
 <section class="hero">
-<div class="hero-bg" style="background-image:url('https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T15-32-23-166Z_Original_user_intent_A_breathtaking_aerial_view_o.png')"></div>
+<div class="hero-bg" style="background-image:url('https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T16-26-52-168Z_Original_user_intent_A_breathtaking_aerial_view_o.png')"></div>
 <div class="hero-content">
 <div class="tagline">🌴 Lençóis Maranhenses</div>
 <h1>Viva os <span>Lençóis Maranhenses</span></h1>
@@ -165,9 +161,8 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
 <div class="section-header">
 <div class="count-badge">✨ 6 passeios imperdíveis</div>
 <h2 class="section-title">Passeios em Barreirinhas</h2>
-<p class="section-sub">Escolha a data e selecione os passeios desejados</p>
+<p class="section-sub">Escolha a data, selecione os passeios e defina o período para cada um</p>
 </div>
-
 <div class="config-bar">
 <div class="config-item">
 <span class="config-label">👥 Pessoas (grupo)</span>
@@ -177,11 +172,8 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
 <button onclick="mudarPessoas(1)">+</button>
 </div>
 </div>
-<div class="config-resumo" id="config-resumo">
-<span class="total-label">Nenhum passeio selecionado</span>
+<div class="config-resumo" id="config-resumo"><span class="total-label">Nenhum passeio selecionado</span></div>
 </div>
-</div>
-
 <div class="grid-passeios" id="gridPasseios"></div>
 </section>
 
@@ -230,9 +222,13 @@ var duracoes = ["4 horas","4 horas","7 horas","8 horas","7 horas","3 horas"];
 var precos = [150,120,200,550,150,110];
 var tipos = ["Por pessoa","Por pessoa","Por adulto","Por quadriciclo","Por adulto","Por adulto"];
 
+// Lagoa Bonita (index 0) tem período. Demais são dia todo.
+var temPeriodo = [true, false, false, false, false, false];
+
 var pessoas = 1;
 var selecionados = {};
 var datas = {};
+var periodos = {}; // só usado para Lagoa Bonita
 
 var amanha = new Date();
 amanha.setDate(amanha.getDate() + 1);
@@ -244,7 +240,7 @@ var partes = d.split("-");
 return partes[2] + "/" + partes[1] + "/" + partes[0];
 }
 
-// Renderiza cards com toggle de seleção ao lado da data
+// Renderiza cards
 var html = "";
 for(var i=0;i<nomes.length;i++){
 html += '<div class="card" id="card-' + i + '">';
@@ -254,12 +250,30 @@ html += '<h3>' + nomes[i] + '</h3>';
 html += '<div class="local">📍 ' + locais[i] + '</div>';
 html += '<p>' + descs[i] + '</p>';
 html += '<div class="card-actions">';
+
+// Botão de seleção - PRIMEIRO
+html += '<button class="btn-select" id="btn-select-' + i + '" onclick="togglePasseio(' + i + ')"><span class="icon-check" id="icon-check-' + i + '">✓</span> <span id="btn-text-' + i + '">Selecionar</span></button>';
+
+// Linha inferior: data + período (se aplicável)
+html += '<div class="card-actions-row">';
 html += '<div class="card-data-wrap">';
 html += '<span class="card-data-label">📅 Data</span>';
 html += '<input type="date" class="card-data-input" id="data-' + i + '" min="' + minDate + '" value="' + minDate + '" onchange="atualizarData(' + i + ')">';
 html += '</div>';
-html += '<button class="btn-select" id="btn-select-' + i + '" onclick="togglePasseio(' + i + ')"><span class="icon-check" id="icon-check-' + i + '">✓</span> <span id="btn-text-' + i + '">Selecionar</span></button>';
+
+// Período - só para Lagoa Bonita
+if(temPeriodo[i]) {
+html += '<div class="periodo-control" id="periodo-control-' + i + '">';
+html += '<button class="periodo-btn ativo" id="periodo-manha-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'manha\')">🌅 Manhã</button>';
+html += '<button class="periodo-btn" id="periodo-tarde-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'tarde\')">🌤 Tarde</button>';
 html += '</div>';
+} else {
+html += '<span style="font-size:.7rem;color:#adb5bd;font-weight:500;letter-spacing:.2px">⏳ Dia todo</span>';
+}
+
+html += '</div>'; // fecha card-actions-row
+html += '</div>'; // fecha card-actions
+
 html += '<div class="card-footer">';
 html += '<div class="info">⏱ ' + duracoes[i] + '</div>';
 html += '<div class="preco">R$ ' + precos[i].toFixed(2).replace(".",",") + ' <small>' + tipos[i] + '</small></div>';
@@ -267,16 +281,15 @@ html += '</div></div></div>';
 }
 document.getElementById("gridPasseios").innerHTML = html;
 
-// Inicializa datas
+// Inicializa
 for(var i=0;i<nomes.length;i++){
 datas[i] = minDate;
+periodos[i] = "manha";
 }
 
 function togglePasseio(id) {
 selecionados[id] = !selecionados[id];
 var card = document.getElementById("card-" + id);
-var btn = document.getElementById("btn-select-" + id);
-var icon = document.getElementById("icon-check-" + id);
 var texto = document.getElementById("btn-text-" + id);
 if(selecionados[id]) {
 card.classList.add("selecionado");
@@ -285,6 +298,13 @@ texto.textContent = "Selecionado";
 card.classList.remove("selecionado");
 texto.textContent = "Selecionar";
 }
+atualizarResumo();
+}
+
+function setPeriodo(id, valor) {
+periodos[id] = valor;
+document.getElementById("periodo-manha-" + id).classList.toggle("ativo", valor === "manha");
+document.getElementById("periodo-tarde-" + id).classList.toggle("ativo", valor === "tarde");
 atualizarResumo();
 }
 
@@ -314,8 +334,12 @@ var valTotal = valPorPessoa * pessoas;
 total += valTotal;
 count++;
 var dataFormatada = formatarData(dataStr);
+var periodoStr = "";
+if(temPeriodo[i]) {
+periodoStr = periodos[i] === "manha" ? " 🌅 Período: Manhã" : " 🌤 Período: Tarde";
+}
 msg += (count) + ". " + nomes[i] + "%0A";
-msg += "   📅 Data: " + dataFormatada + "%0A";
+msg += "   📅 Data: " + dataFormatada + periodoStr + "%0A";
 msg += "   💵 R$ " + valPorPessoa.toFixed(2).replace(".",",") + "/pessoa (Total: R$ " + valTotal.toFixed(2).replace(".",",") + ")%0A%0A";
 }
 }
