@@ -59,8 +59,6 @@ nav a:hover{color:#0a9396}
 .btn-select .icon-check{width:17px;height:17px;border-radius:4px;border:1.5px solid #adb5bd;display:flex;align-items:center;justify-content:center;font-size:.58rem;transition:all .2s;flex-shrink:0}
 .card.selecionado .btn-select{border-color:#0a9396;background:rgba(10,147,150,0.06);color:#0a9396}
 .card.selecionado .btn-select .icon-check{background:#0a9396;border-color:#0a9396;color:#fff}
-
-/* CONTROLES PADRÃO - IGUAL PARA TODOS OS CARDS */
 .controls-stack{display:flex;flex-direction:column;gap:6px}
 .controls-row{display:flex;align-items:center;gap:8px}
 .control-unit{display:flex;align-items:center;gap:5px;flex:1;min-width:0}
@@ -71,11 +69,13 @@ nav a:hover{color:#0a9396}
 .people-control button{width:30px;height:28px;border:none;background:#fafafa;font-size:.85rem;font-weight:700;color:#0a9396;cursor:pointer;transition:background .15s;display:flex;align-items:center;justify-content:center}
 .people-control button:hover{background:#e9ecef}
 .people-control span{width:32px;text-align:center;font-weight:700;font-size:.76rem;color:#1a1a2e}
-.periodo-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden;flex-shrink:0}
-.periodo-btn{padding:5px 10px;border:none;background:#fafafa;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;color:#6c757d;cursor:pointer;transition:all .15s}
-.periodo-btn.ativo{background:#0a9396;color:#fff}
-.periodo-btn:not(.ativo):hover{background:#e9ecef}
-.periodo-btn+.periodo-btn{border-left:1.5px solid #e0e0e0}
+/* BOLINHAS DE PERÍODO */
+.periodo-radios{display:flex;align-items:center;gap:12px;padding:4px 0}
+.periodo-radio{display:flex;align-items:center;gap:5px;cursor:pointer;font-size:.76rem;font-weight:500;color:#6c757d;transition:color .15s;user-select:none}
+.periodo-radio:hover{color:#0a9396}
+.periodo-radio .circle{width:18px;height:18px;border-radius:50%;border:2px solid #adb5bd;display:flex;align-items:center;justify-content:center;font-size:.5rem;transition:all .15s;flex-shrink:0;color:transparent;line-height:1}
+.periodo-radio.selecionado{color:#0a9396}
+.periodo-radio.selecionado .circle{border-color:#0a9396;background:#0a9396;color:#fff;font-size:.55rem}
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #f0f0f0}
 .card-footer .info{display:flex;align-items:center;gap:5px;font-size:.7rem;color:#6c757d}
 .card-footer .preco{font-size:1rem;font-weight:700;color:#0a9396}
@@ -124,7 +124,7 @@ nav a:hover{color:#0a9396}
 .orcamento-bar .resumo-info{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .orcamento-bar .resumo-item{font-size:.78rem;color:#495057}
 .orcamento-bar .resumo-item strong{color:#0a9396;font-size:.92rem}
-.btn-whatsapp-orcamento{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;padding:10px 22px;border-radius:10px;font-weight:600;font-size:.85rem;transition:all .3s;white-space:nowrap;text-decoration:none}
+.btn-whatsapp-orcamento{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;padding:10px 22px;border-radius:10px;font-weight:600;font-size:.85rem;transition:all .3s;white-space:nowrap;text-decoration:none;border:none;font-family:'Inter',sans-serif;cursor:pointer}
 .btn-whatsapp-orcamento:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3)}
 .whatsapp-float{position:fixed;bottom:20px;right:16px;z-index:999;display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:10px 18px;border-radius:50px;font-weight:600;font-size:.82rem;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all .3s;text-decoration:none}
 .whatsapp-float:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
@@ -168,10 +168,8 @@ nav a{margin-left:22px;font-size:.88rem}
 .detalhe-actions .action-row{flex-direction:column;align-items:stretch}
 }
 @media(max-width:380px){
-.hero h1{font-size:1.7rem}
-.logo-text{font-size:.82rem}
-nav a{margin-left:6px;font-size:.68rem}
-.btn-nav{padding:5px 10px;font-size:.68rem}
+.hero h1{font-size:1.7rem}.logo-text{font-size:.82rem}
+nav a{margin-left:6px;font-size:.68rem}.btn-nav{padding:5px 10px;font-size:.68rem}
 }
 </style>
 </head>
@@ -207,7 +205,7 @@ nav a{margin-left:6px;font-size:.68rem}
 <div class="section-header">
 <div class="count-badge">✨ 6 passeios imperdíveis</div>
 <h2 class="section-title">Passeios em Barreirinhas</h2>
-<p class="section-sub">Selecione os passeios, data e quantas pessoas vão em cada um</p>
+<p class="section-sub">Selecione os passeios, data, horário e quantas pessoas vão em cada um</p>
 </div>
 <div class="grid-passeios" id="gridPasseios"></div>
 </section>
@@ -248,10 +246,10 @@ nav a{margin-left:6px;font-size:.68rem}
 <span class="resumo-item">👥 <strong id="total-pessoas">0</strong></span>
 <span class="resumo-item">💰 <strong id="total-valor">R$ 0,00</strong></span>
 </div>
-<a id="btn-wa-orcamento" href="#" class="btn-whatsapp-orcamento" target="_blank">
+<button class="btn-whatsapp-orcamento" id="btn-wa-orcamento" onclick="solicitarOrcamento()">
 <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 Solicitar Orçamento
-</a>
+</button>
 </div>
 
 <a id="btn-wa-float" href="https://wa.me/5598970141256" class="whatsapp-float" target="_blank">
@@ -263,7 +261,6 @@ Fale Conosco
 
 <script>
 var base = "https://raw.githubusercontent.com/DinizTurismo/Diniz_Turismo/main/";
-
 var fotos = [
 base + "lagoa_bonita.png",
 base + "Lagoa_azul.jpg",
@@ -272,7 +269,6 @@ base + "quadriciclo.jpg",
 base + "cabure.jpg",
 base + "cardosa.jpg"
 ];
-
 var nomes = ["Circuito Lagoa Bonita","Circuito Lagoa Azul","Atins","Trilha de Quadriciclo","Circuito Caburé Rio Preguiças","Boia Cross Cardosa"];
 var locais = ["Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA"];
 var descs_curtas = ["Um dos mais populares roteiros de Barreirinhas, o Circuito da Lagoa Bonita está entre os mais belos passeios dos Lençóis.","O passeio para os Grandes Lençóis é um dos mais populares da região, com paisagens paradisíacas.","Conheça esse paraíso natural, conhecido como a Jericoacoara Maranhense, porta de entrada do Parque Nacional.","Passeio repleto de aventura e emoção para quem busca explorar a região sobre rodas.","Passeio de lancha voadeira percorrendo o Rio Preguiças até a praia de Caburé.","Águas cristalinas cercado por buritizais, o povoado de Cardosa é uma das atrações naturais da região."];
@@ -281,7 +277,7 @@ var descs_longas = [
 "O Circuito Lagoa Azul é uma experiência inesquecível pelos Grandes Lençóis. O trajeto de veículo 4x4 percorre as dunas até chegar à Lagoa Azul, que recebe esse nome pela cor intensa de suas águas. Considerado um dos mais bonitos da região, este circuito oferece paisagens de tirar o fôlego com dunas que se estendem até onde a vista alcança. O banho na Lagoa Azul é o ponto alto: águas mornas e cristalinas que proporcionam relaxamento total. Além da lagoa principal, o passeio inclui paradas em outros pontos estratégicos para fotos. O guia acompanha todo o percurso. Duração aproximada de 4 horas, com saída de Barreirinhas. Leve protetor solar, chapéu e roupas leves.",
 "Atins é um distrito de Barreirinhas conhecido como a 'Jericoacoara Maranhense'. Este paraíso natural é a porta de entrada para o Parque Nacional dos Lençóis Maranhenses. O povoado preserva um clima rústico e aconchegante, com ruas de areia e uma atmosfera tranquila. O passeio inclui visitas a lagoas cristalinas, dunas e o encontro do Rio Preguiças com o mar. As opções de hospedagem e gastronomia local são um capítulo à parte, com restaurantes rústicos servindo peixes e frutos do mar frescos. Ideal para quem busca contato verdadeiro com a natureza, Atins é point obrigatório para quem quer vivenciar os Lençóis de forma autêntica.",
 "Para os aventureiros de plantão, a Trilha de Quadriciclo é a pedida perfeita. O passeio percorre trilhas incríveis pelas dunas e vegetação típica, proporcionando uma descarga de adrenalina inesquecível. Você pilotará seu próprio veículo acompanhado por guia experiente que conhece todos os segredos da região. O roteiro inclui paradas em pontos estratégicos com vistas panorâmicas de tirar o fôlego. Durante aproximadamente 8 horas de aventura, você vai explorar cantos dos Lençóis que poucos visitantes conhecem. Recomenda-se levar protetor solar, óculos escuros, roupas leves e fechadas (para proteção solar), boné e água. A aventura é em dobro pilotando em dupla!",
-"O Circuito Caburé é um delicioso passeio de lancha voadeira pelo Rio Preguiças. A navegação começa saindo de Barreirinhas e segue pelos meandros do rio cercado por vegetação exuberante. O destino é a deslumbrante praia de Caburé, donde o rio encontra o mar, formando paisagens espetaculares. Durante o percurso, é possível observar a fauna local, incluindo aves e, com sorte, peixes-boi. O passeio inclui paradas em pontos estratégicos com estrutura para alimentação e descanso. São aproximadamente 7 horas de passeio, combinando navegação, natureza e momentos de lazer à beira do rio.",
+"O Circuito Caburé é um delicioso passeio de lancha voadeira pelo Rio Preguiças. A navegação começa saindo de Barreirinhas e segue pelos meandros do rio cercado por vegetação exuberante. O destino é a deslumbrante praia de Caburé, onde o rio encontra o mar, formando paisagens espetaculares. Durante o percurso, é possível observar a fauna local, incluindo aves e, com sorte, peixes-boi. O passeio inclui paradas em pontos estratégicos com estrutura para alimentação e descanso. São aproximadamente 7 horas de passeio, combinando navegação, natureza e momentos de lazer à beira do rio.",
 "Boia Cross no povoado de Cardosa é um dos passeios mais refrescantes e divertidos dos Lençóis. A atividade consiste em flutuar em boias pelas águas cristalinas do rio, cercado por buritizais e vegetação nativa. O percurso é seguro e adequado para todas as idades, inclusive crianças. O balneário de Cardosa oferece estrutura com quiosques e áreas para descanso. O local é ideal para famílias que buscam um dia de lazer em contato com a natureza. A transparência das águas permite ver o fundo do rio durante todo o trajeto. Duração de aproximadamente 3 horas."
 ];
 var duracoes = ["4 horas","4 horas","7 horas","8 horas","7 horas","3 horas"];
@@ -372,6 +368,23 @@ navegarLightbox(diff > 0 ? -1 : 1);
 }
 });
 
+// VALIDAÇÃO DE PERÍODO
+function solicitarOrcamento() {
+var pendentes = [];
+for(var i=0;i<nomes.length;i++) {
+if(selecionados[i] && temPeriodo[i] && !periodos[i]) {
+pendentes.push(nomes[i]);
+}
+}
+if(pendentes.length > 0) {
+var msg = "Selecione o horário (Manhã ou Tarde) para:\n• " + pendentes.join("\n• ");
+alert(msg);
+return;
+}
+var link = document.getElementById("btn-wa-orcamento").getAttribute("data-wa-link");
+if(link) window.open(link, '_blank');
+}
+
 function renderizarHome() {
 var html = "";
 for(var i=0;i<nomes.length;i++){
@@ -386,7 +399,6 @@ html += '<div class="resumo-text">' + descs_curtas[i] + '</div>';
 html += '<div class="card-actions">';
 html += '<button class="btn-select" id="btn-select-' + i + '" onclick="togglePasseio(' + i + ')"><span class="icon-check" id="icon-check-' + i + '">✓</span> <span id="btn-text-' + i + '">Selecionar</span></button>';
 
-/* CONTROLES PADRÃO - IGUAL PARA TODO MUNDO */
 html += '<div class="controls-stack">';
 html += '<div class="controls-row">';
 html += '<div class="control-unit"><label>📅</label><input type="date" class="date-input" id="data-' + i + '" min="' + minDate + '" value="' + minDate + '" onchange="atualizarData(' + i + ')"></div>';
@@ -394,9 +406,9 @@ html += '<div class="control-unit"><label>👥</label><div class="people-control
 html += '</div>';
 if(temPeriodo[i]) {
 html += '<div class="controls-row">';
-html += '<div class="periodo-control" id="periodo-control-' + i + '">';
-html += '<button class="periodo-btn ativo" id="periodo-manha-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'manha\')">🌅 Manhã</button>';
-html += '<button class="periodo-btn" id="periodo-tarde-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'tarde\')">🌤 Tarde</button>';
+html += '<div class="periodo-radios" id="periodo-radios-' + i + '">';
+html += '<span class="periodo-radio" id="periodo-manha-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'manha\')"><span class="circle">●</span> Manhã</span>';
+html += '<span class="periodo-radio" id="periodo-tarde-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'tarde\')"><span class="circle">●</span> Tarde</span>';
 html += '</div>';
 html += '</div>';
 }
@@ -411,7 +423,7 @@ html += '</div></div></div>';
 document.getElementById("gridPasseios").innerHTML = html;
 for(var i=0;i<nomes.length;i++){
 datas[i] = minDate;
-periodos[i] = "manha";
+periodos[i] = ""; // começa em branco
 pessoas[i] = 1;
 }
 }
@@ -420,7 +432,12 @@ function renderizarDetalhe(id) {
 document.getElementById("detalhe-titulo-topo").textContent = nomes[id];
 var periodoHtml = "";
 if(temPeriodo[id]) {
-periodoHtml = '<div class="periodo-control"><button class="periodo-btn ativo" id="det-periodo-manha" onclick="detSetPeriodo(\'manha\')">🌅 Manhã</button><button class="periodo-btn" id="det-periodo-tarde" onclick="detSetPeriodo(\'tarde\')">🌤 Tarde</button></div>';
+var selecM = periodos[id] === "manha" ? "selecionado" : "";
+var selT = periodos[id] === "tarde" ? "selecionado" : "";
+periodoHtml = '<div class="periodo-radios">';
+periodoHtml += '<span class="periodo-radio ' + selecM + '" id="det-periodo-manha" onclick="detSetPeriodo(\'manha\')"><span class="circle">●</span> Manhã</span>';
+periodoHtml += '<span class="periodo-radio ' + selT + '" id="det-periodo-tarde" onclick="detSetPeriodo(\'tarde\')"><span class="circle">●</span> Tarde</span>';
+periodoHtml += '</div>';
 }
 var selecionadoTexto = selecionados[id] ? "✅ Selecionado" : "☐ Selecionar";
 var selecionadoClass = selecionados[id] ? "btn-select-detalhe selecionado" : "btn-select-detalhe";
@@ -444,7 +461,7 @@ html += '<p>' + descs_longas[id] + '</p></div>';
 html += '<div class="detalhe-actions">';
 html += '<div class="action-row"><span class="action-label">📅 Data</span><input type="date" class="date-input" id="det-data" min="' + minDate + '" value="' + (datas[id]||minDate) + '" onchange="detAtualizarData(' + id + ')"></div>';
 if(temPeriodo[id]) {
-html += '<div class="action-row"><span class="action-label">⏰ Período</span>' + periodoHtml + '</div>';
+html += '<div class="action-row"><span class="action-label">⏰ Horário</span>' + periodoHtml + '</div>';
 }
 html += '<div class="action-row"><span class="action-label">👥 Pessoas</span><div class="people-control"><button onclick="detMudarPessoas(' + id + ',-1)">−</button><span id="det-pessoas">' + (pessoas[id]||1) + '</span><button onclick="detMudarPessoas(' + id + ',1)">+</button></div></div>';
 html += '<button class="' + selecionadoClass + '" id="btn-det-select" onclick="detTogglePasseio(' + id + ')">' + selecionadoTexto + '</button>';
@@ -486,17 +503,21 @@ if(texto) texto.textContent = "Selecionar";
 }
 
 function setPeriodo(id, valor) {
-periodos[id] = valor;
-document.getElementById("periodo-manha-" + id).classList.toggle("ativo", valor === "manha");
-document.getElementById("periodo-tarde-" + id).classList.toggle("ativo", valor === "tarde");
+periodos[id] = (periodos[id] === valor) ? "" : valor;
+var elManha = document.getElementById("periodo-manha-" + id);
+var elTarde = document.getElementById("periodo-tarde-" + id);
+if(elManha) elManha.classList.toggle("selecionado", periodos[id] === "manha");
+if(elTarde) elTarde.classList.toggle("selecionado", periodos[id] === "tarde");
 atualizarResumo();
 }
 
 function detSetPeriodo(valor) {
 var paginaAtual = getPaginaDetalheAtual();
-periodos[paginaAtual] = valor;
-document.getElementById("det-periodo-manha").classList.toggle("ativo", valor === "manha");
-document.getElementById("det-periodo-tarde").classList.toggle("ativo", valor === "tarde");
+periodos[paginaAtual] = (periodos[paginaAtual] === valor) ? "" : valor;
+var elManha = document.getElementById("det-periodo-manha");
+var elTarde = document.getElementById("det-periodo-tarde");
+if(elManha) elManha.classList.toggle("selecionado", periodos[paginaAtual] === "manha");
+if(elTarde) elTarde.classList.toggle("selecionado", periodos[paginaAtual] === "tarde");
 atualizarResumo();
 }
 
@@ -534,7 +555,7 @@ function atualizarResumo() {
 var total = 0;
 var count = 0;
 var totalPessoasGeral = 0;
-var msg = "Olá! Gostaria de verificar a disponibilidade para os seguintes passeios:%0A%0A";
+var msg = "Olá! Gostaria de solicitar um orçamento para os seguintes passeios:%0A%0A";
 msg += "Passeios selecionados:%0A";
 for(var i=0;i<nomes.length;i++) {
 if(selecionados[i]) {
@@ -547,7 +568,7 @@ count++;
 totalPessoasGeral += qtd;
 var dataFormatada = formatarData(dataStr);
 var periodoStr = "";
-if(temPeriodo[i]) {
+if(temPeriodo[i] && periodos[i]) {
 periodoStr = periodos[i] === "manha" ? " 🌅 Período: Manhã" : " 🌤 Período: Tarde";
 }
 msg += (count) + ". " + nomes[i] + "%0A";
@@ -558,8 +579,10 @@ msg += "   💵 R$ " + valPorPessoa.toFixed(2).replace(".",",") + "/pessoa (Tota
 }
 msg += "💰 Valor total: R$ " + total.toFixed(2).replace(".",",") + "%0A%0A";
 msg += "Poderia me enviar mais informações sobre disponibilidade e formas de pagamento?";
+
+document.getElementById("btn-wa-orcamento").setAttribute("data-wa-link", "https://wa.me/5598970141256?text=" + msg);
+
 var bar = document.getElementById("orcamentoBar");
-var btnWA = document.getElementById("btn-wa-orcamento");
 var btnFloat = document.getElementById("btn-wa-float");
 var totalItens = document.getElementById("total-itens");
 var totalValor = document.getElementById("total-valor");
@@ -569,8 +592,6 @@ totalValor.textContent = "R$ " + total.toFixed(2).replace(".",",");
 totalPessoasEl.textContent = totalPessoasGeral;
 if(count > 0) {
 bar.classList.add("visivel");
-btnWA.href = "https://wa.me/5598970141256?text=" + msg;
-btnWA.style.display = "inline-flex";
 btnFloat.style.display = "none";
 } else {
 bar.classList.remove("visivel");
