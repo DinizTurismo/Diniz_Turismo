@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lençóis Aventura - Passeios em Barreirinhas</title>
+<title>Diniz Turismo - Passeios em Barreirinhas</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff}
 a{text-decoration:none;color:inherit}
-
-/* HEADER */
 header{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);z-index:1000;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.05)}
 .logo{font-size:1.3rem;font-weight:800;color:#0a9396}
 .logo span{color:#e9c46a}
@@ -18,8 +16,6 @@ nav a{margin-left:28px;font-weight:500;font-size:0.9rem;color:#1a1a2e;transition
 nav a:hover{color:#0a9396}
 .btn-nav{background:#0a9396;color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:600}
 .btn-nav:hover{background:#087d80!important}
-
-/* HERO */
 .hero{min-height:100vh;background:linear-gradient(135deg,#0a9396 0%,#005f73 50%,#001219 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px}
 .hero h1{font-size:3rem;font-weight:900;color:#fff;margin-bottom:12px}
 .hero h1 span{color:#e9c46a}
@@ -31,15 +27,11 @@ nav a:hover{color:#0a9396}
 .btn-primary:hover{background:#d4a843;transform:translateY(-2px)}
 .btn-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
 .btn-secondary:hover{border-color:#e9c46a;color:#e9c46a;transform:translateY(-2px)}
-
-/* SEÇÃO PASSEIOS */
 .passeios-section{padding:80px 5%;max-width:1200px;margin:0 auto}
 .section-title{text-align:center;font-size:2rem;font-weight:800;margin-bottom:8px}
 .section-sub{text-align:center;color:#6c757d;font-size:.95rem;margin-bottom:48px}
 .count-badge{display:inline-block;background:#f0fdfa;color:#0a9396;padding:4px 16px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:12px}
-
 .grid-passeios{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
-
 .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.06);transition:all .3s;border:1px solid #f0f0f0}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
 .card-img{height:200px;background-size:cover;background-position:center;position:relative}
@@ -47,23 +39,15 @@ nav a:hover{color:#0a9396}
 .card-body{padding:20px 24px 24px}
 .card-body h3{font-size:1.15rem;font-weight:700;margin-bottom:6px;color:#1a1a2e}
 .card-body .local{font-size:.8rem;color:#6c757d;margin-bottom:10px}
-.card-body .local svg{display:inline;vertical-align:middle;margin-right:4px}
 .card-body p{font-size:.88rem;color:#6c757d;line-height:1.5;margin-bottom:16px}
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid #f0f0f0}
 .card-footer .info{display:flex;align-items:center;gap:6px;font-size:.8rem;color:#6c757d}
 .card-footer .preco{font-size:1.15rem;font-weight:700;color:#0a9396}
 .card-footer .preco small{font-weight:400;font-size:.75rem;color:#6c757d}
-.btn-ver{background:transparent;color:#0a9396;font-weight:600;font-size:.85rem;padding:8px 20px;border-radius:8px;border:1.5px solid #0a9396;transition:all .2s}
-.btn-ver:hover{background:#0a9396;color:#fff}
-
-/* SEÇÃO TRANSFER */
 .transfer-section{background:#f8f9fa;padding:60px 5%;text-align:center}
-.transfer-section h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
 .transfer-section p{color:#6c757d;margin-bottom:24px}
 .btn-transfer{background:#0a9396;color:#fff;padding:14px 36px;border-radius:10px;font-weight:600;display:inline-block}
 .btn-transfer:hover{background:#087d80}
-
-/* CONTATO */
 .contato-section{text-align:center;padding:60px 5%}
 .contato-section h2{font-size:1.6rem;font-weight:800;margin-bottom:24px}
 .contato-info{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:24px}
@@ -73,11 +57,7 @@ nav a:hover{color:#0a9396}
 .contato-item small{color:#6c757d;font-size:.8rem}
 .whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:14px 32px;border-radius:10px;font-weight:600;transition:background .3s}
 .whatsapp-btn:hover{background:#1da851}
-
-/* RODAPÉ */
 footer{background:#001219;color:rgba(255,255,255,.7);text-align:center;padding:24px 5%;font-size:.82rem}
-
-/* RESPONSIVO */
 @media(max-width:768px){
 .hero h1{font-size:2rem}
 .hero p{font-size:1rem}
@@ -88,7 +68,6 @@ nav a{margin-left:14px;font-size:.78rem}
 </style>
 </head>
 <body>
-
 <header>
 <div class="logo">Lençóis <span>Aventura</span></div>
 <nav>
@@ -98,7 +77,6 @@ nav a{margin-left:14px;font-size:.78rem}
 <a href="https://wa.me/5598970141256" class="btn-nav">Reservar</a>
 </nav>
 </header>
-
 <section class="hero">
 <div>
 <h1>Descubra os <span>Lençóis Maranhenses</span></h1>
@@ -110,20 +88,16 @@ nav a{margin-left:14px;font-size:.78rem}
 </div>
 </div>
 </section>
-
 <section class="passeios-section" id="passeios">
 <div class="count-badge">6 passeios</div>
 <h2 class="section-title">Passeios em Barreirinhas</h2>
 <p class="section-sub">Conheça as melhores experiências nos Lençóis Maranhenses</p>
-
 <div class="grid-passeios" id="gridPasseios"></div>
 </section>
-
 <section class="transfer-section" id="transfer">
 <p>Privativos ou compartilhados. Reserve online com praticidade e confirmação rápida.</p>
 <a href="https://wa.me/5598970141256" class="btn-transfer">Solicitar Orçamento</a>
 </section>
-
 <section class="contato-section" id="contato">
 <h2>Entre em Contato</h2>
 <div class="contato-info">
@@ -133,19 +107,16 @@ nav a{margin-left:14px;font-size:.78rem}
 </div>
 <a href="https://wa.me/5598970141256" class="whatsapp-btn">💬 Fale Conosco</a>
 </section>
-
 <footer>© 2026 Diniz Turismo — Agência de Turismo em Barreirinhas, MA</footer>
-
 <script>
 const passeios = [
 {id:1,nome:'Circuito Lagoa Bonita',local:'Barreirinhas, MA',desc:'Um dos mais populares roteiros de Barreirinhas, o Circuito da Lagoa Bonita está entre os mais belos passeios dos Lençóis.',duracao:'4 horas',preco:150,tipo:'Por pessoa',img:'https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=600&h=400&fit=crop'},
 {id:2,nome:'Circuito Lagoa Azul',local:'Barreirinhas, MA',desc:'O passeio para os Grandes Lençóis é um dos mais populares da região, com paisagens paradisíacas.',duracao:'4 horas',preco:120,tipo:'Por pessoa',img:'https://images.unsplash.com/photo-1587502536575-6dfba0a1e097?w=600&h=400&fit=crop'},
 {id:3,nome:'Atins',local:'Barreirinhas, MA',desc:'Conheça esse paraíso natural, conhecido como a "Jericoacoara Maranhense", porta de entrada do Parque Nacional.',duracao:'7 horas',preco:200,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&h=400&fit=crop'},
-{id:5,nome:'Trilha de Quadriciclo',local:'Barreirinhas, MA',desc:'Passeio repleto de aventura e emoção para quem busca explorar a região sobre rodas.',duracao:'8 horas',preco:550,tipo:'Por quadriciclo',img:'img:'https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=600&h=400&fit=crop'},
+{id:5,nome:'Trilha de Quadriciclo',local:'Barreirinhas, MA',desc:'Passeio repleto de aventura e emoção para quem busca explorar a região sobre rodas.',duracao:'8 horas',preco:550,tipo:'Por quadriciclo',img:'https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=600&h=400&fit=crop'},
 {id:6,nome:'Circuito Caburé Rio Preguiças',local:'Barreirinhas, MA',desc:'Passeio de lancha voadeira percorrendo o Rio Preguiças até a praia de Caburé.',duracao:'7 horas',preco:150,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1533659828870-95ee305cee5e?w=600&h=400&fit=crop'},
-{id:8,nome:'Boia Cross Cardosa',local:'Barreirinhas, MA',desc:'Águas cristalinas cercado por buritizais, o povoado de Cardosa é uma das atrações naturais da região.',duracao:'3 horas',preco:110,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=600&h=400&fit=crop'},
+{id:8,nome:'Boia Cross Cardosa',local:'Barreirinhas, MA',desc:'Águas cristalinas cercado por buritizais, o povoado de Cardosa é uma das atrações naturais da região.',duracao:'3 horas',preco:110,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=600&h=400&fit=crop'}
 ];
-
 const grid = document.getElementById('gridPasseios');
 grid.innerHTML = passeios.map(p => `
 <div class="card">
@@ -162,6 +133,5 @@ grid.innerHTML = passeios.map(p => `
 </div>
 `).join('');
 </script>
-
 </body>
 </html>
