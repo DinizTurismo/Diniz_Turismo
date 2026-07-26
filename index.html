@@ -212,8 +212,7 @@ var duracoes = ["4 horas","4 horas","7 horas","8 horas","7 horas","3 horas"];
 var precos = [150,120,200,550,150,110];
 var tipos = ["Por pessoa","Por pessoa","Por adulto","Por quadriciclo","Por adulto","Por adulto"];
 
-/* ✅ Lagoa Bonita (0) e Lagoa Azul (1) têm período manhã/tarde */
-/* Demais são dia todo */
+/* Lagoa Bonita (0) e Lagoa Azul (1) têm período manhã/tarde */
 var temPeriodo = [true, true, false, false, false, false];
 
 var pessoas = 1;
@@ -251,8 +250,6 @@ html += '<div class="periodo-control" id="periodo-control-' + i + '">';
 html += '<button class="periodo-btn ativo" id="periodo-manha-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'manha\')">🌅 Manhã</button>';
 html += '<button class="periodo-btn" id="periodo-tarde-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'tarde\')">🌤 Tarde</button>';
 html += '</div>';
-} else {
-html += '<span style="font-size:.7rem;color:#adb5bd;font-weight:500;letter-spacing:.2px">⏳ Dia todo</span>';
 }
 html += '</div></div>';
 html += '<div class="card-footer">';
