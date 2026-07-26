@@ -1,693 +1,171 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lençóis Aventura - Agência de Turismo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #1a1a2e;
-            background: #f8f9fa;
-            scroll-behavior: smooth;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 14px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #0a9396;
-        }
-
-        .logo span {
-            color: #e9c46a;
-        }
-
-        nav a {
-            margin-left: 28px;
-            text-decoration: none;
-            color: #1a1a2e;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: #0a9396;
-        }
-
-        .btn-nav-reserva {
-            background: #0a9396;
-            color: #fff !important;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
-        .btn-nav-reserva:hover {
-            background: #087d80;
-        }
-
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0a9396 0%, #005f73 50%, #001219 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 5% 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(233, 196, 106, 0.08) 0%, transparent 60%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-30px, -30px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 16px;
-            line-height: 1.15;
-        }
-
-        .hero h1 span {
-            color: #e9c46a;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 36px;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 36px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: #e9c46a;
-            color: #1a1a2e;
-        }
-
-        .btn-primary:hover {
-            background: #d4a843;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-secondary:hover {
-            border-color: #e9c46a;
-            color: #e9c46a;
-            transform: translateY(-2px);
-        }
-
-        section {
-            padding: 80px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 800;
-            color: #1a1a2e;
-            margin-bottom: 12px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #6c757d;
-            font-size: 1rem;
-            margin-bottom: 48px;
-        }
-
-        .passeios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 28px;
-        }
-
-        .card-passeio {
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card-passeio:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-passeio-img {
-            height: 200px;
-            background: linear-gradient(135deg, #0a9396, #005f73);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            position: relative;
-        }
-
-        .card-passeio-img .tag {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: #e9c46a;
-            color: #1a1a2e;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
-        .card-passeio-body {
-            padding: 24px;
-        }
-
-        .card-passeio-body h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .card-passeio-body p {
-            color: #6c757d;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 16px;
-        }
-
-        .card-passeio-body .info-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            margin-bottom: 6px;
-            color: #495057;
-        }
-
-        .card-passeio-body .info-row strong {
-            color: #1a1a2e;
-        }
-
-        .card-passeio-body .precos {
-            margin-top: 14px;
-            padding-top: 14px;
-            border-top: 1px solid #e9ecef;
-        }
-
-        .card-passeio-body .preco-item {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            margin-bottom: 4px;
-        }
-
-        .card-passeio-body .preco-item .valor {
-            font-weight: 700;
-            color: #0a9396;
-        }
-
-        .form-section {
-            background: #fff;
-            border-radius: 20px;
-            padding: 48px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 6px;
-            color: #1a1a2e;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
-            transition: border-color 0.2s;
-            background: #f8f9fa;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0a9396;
-            background: #fff;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .checkbox-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 14px;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.85rem;
-        }
-
-        .checkbox-item:hover {
-            border-color: #0a9396;
-        }
-
-        .checkbox-item.selected {
-            border-color: #0a9396;
-            background: rgba(10, 147, 150, 0.06);
-        }
-
-        .checkbox-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: #0a9396;
-        }
-
-        .resumo-pedido {
-            background: #f0fdfa;
-            border: 2px solid #0a9396;
-            border-radius: 14px;
-            padding: 24px;
-            margin-top: 28px;
-        }
-
-        .resumo-pedido h4 {
-            font-size: 1.1rem;
-            margin-bottom: 16px;
-            color: #0a9396;
-        }
-
-        .resumo-linha {
-            display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            font-size: 0.9rem;
-        }
-
-        .resumo-linha.total {
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-top: 2px solid #0a9396;
-            padding-top: 12px;
-            margin-top: 8px;
-            color: #0a9396;
-        }
-
-        .resumo-linha.sinal {
-            font-weight: 600;
-            color: #e76f51;
-            font-size: 1rem;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 16px;
-            background: #0a9396;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 24px;
-        }
-
-        .btn-submit:hover {
-            background: #087d80;
-        }
-
-        .contato-info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 32px;
-        }
-
-        .contato-item {
-            text-align: center;
-        }
-
-        .contato-item .icone {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-
-        .contato-item p {
-            font-weight: 600;
-        }
-
-        .contato-item small {
-            color: #6c757d;
-        }
-
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #25d366;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: background 0.3s;
-        }
-
-        .whatsapp-btn:hover {
-            background: #1da851;
-        }
-
-        footer {
-            background: #001219;
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            padding: 32px 5%;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            nav a { margin-left: 16px; font-size: 0.8rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .checkbox-group { grid-template-columns: 1fr; }
-            .form-section { padding: 28px 20px; }
-            section { padding: 60px 5%; }
-            .passeios-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 480px) {
-            header { padding: 10px 4%; }
-            .logo { font-size: 1.1rem; }
-            nav a { margin-left: 10px; font-size: 0.7rem; }
-            .btn { padding: 12px 24px; font-size: 0.9rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lençóis Aventura - Passeios em Barreirinhas</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#fff}
+a{text-decoration:none;color:inherit}
+
+/* HEADER */
+header{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);z-index:1000;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.05)}
+.logo{font-size:1.3rem;font-weight:800;color:#0a9396}
+.logo span{color:#e9c46a}
+nav a{margin-left:28px;font-weight:500;font-size:0.9rem;color:#1a1a2e;transition:color .2s}
+nav a:hover{color:#0a9396}
+.btn-nav{background:#0a9396;color:#fff!important;padding:8px 20px;border-radius:8px;font-weight:600}
+.btn-nav:hover{background:#087d80!important}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#0a9396 0%,#005f73 50%,#001219 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px}
+.hero h1{font-size:3rem;font-weight:900;color:#fff;margin-bottom:12px}
+.hero h1 span{color:#e9c46a}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:8px;line-height:1.6}
+.hero .sub{font-size:.95rem;color:rgba(255,255,255,.6);margin-bottom:32px}
+.hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{padding:14px 34px;border-radius:10px;font-weight:600;font-size:1rem;display:inline-block;transition:all .3s}
+.btn-primary{background:#e9c46a;color:#1a1a2e}
+.btn-primary:hover{background:#d4a843;transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+.btn-secondary:hover{border-color:#e9c46a;color:#e9c46a;transform:translateY(-2px)}
+
+/* SEÇÃO PASSEIOS */
+.passeios-section{padding:80px 5%;max-width:1200px;margin:0 auto}
+.section-title{text-align:center;font-size:2rem;font-weight:800;margin-bottom:8px}
+.section-sub{text-align:center;color:#6c757d;font-size:.95rem;margin-bottom:48px}
+.count-badge{display:inline-block;background:#f0fdfa;color:#0a9396;padding:4px 16px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:12px}
+
+.grid-passeios{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.06);transition:all .3s;border:1px solid #f0f0f0}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
+.card-img{height:200px;background-size:cover;background-position:center;position:relative}
+.card-img .badge{position:absolute;top:16px;left:16px;background:#e9c46a;color:#1a1a2e;padding:4px 12px;border-radius:6px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.card-body{padding:20px 24px 24px}
+.card-body h3{font-size:1.15rem;font-weight:700;margin-bottom:6px;color:#1a1a2e}
+.card-body .local{font-size:.8rem;color:#6c757d;margin-bottom:10px}
+.card-body .local svg{display:inline;vertical-align:middle;margin-right:4px}
+.card-body p{font-size:.88rem;color:#6c757d;line-height:1.5;margin-bottom:16px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid #f0f0f0}
+.card-footer .info{display:flex;align-items:center;gap:6px;font-size:.8rem;color:#6c757d}
+.card-footer .preco{font-size:1.15rem;font-weight:700;color:#0a9396}
+.card-footer .preco small{font-weight:400;font-size:.75rem;color:#6c757d}
+.btn-ver{background:transparent;color:#0a9396;font-weight:600;font-size:.85rem;padding:8px 20px;border-radius:8px;border:1.5px solid #0a9396;transition:all .2s}
+.btn-ver:hover{background:#0a9396;color:#fff}
+
+/* SEÇÃO TRANSFER */
+.transfer-section{background:#f8f9fa;padding:60px 5%;text-align:center}
+.transfer-section h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+.transfer-section p{color:#6c757d;margin-bottom:24px}
+.btn-transfer{background:#0a9396;color:#fff;padding:14px 36px;border-radius:10px;font-weight:600;display:inline-block}
+.btn-transfer:hover{background:#087d80}
+
+/* CONTATO */
+.contato-section{text-align:center;padding:60px 5%}
+.contato-section h2{font-size:1.6rem;font-weight:800;margin-bottom:24px}
+.contato-info{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:24px}
+.contato-item{text-align:center}
+.contato-item .icone{font-size:1.8rem;margin-bottom:6px}
+.contato-item p{font-weight:600;font-size:.9rem}
+.contato-item small{color:#6c757d;font-size:.8rem}
+.whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:14px 32px;border-radius:10px;font-weight:600;transition:background .3s}
+.whatsapp-btn:hover{background:#1da851}
+
+/* RODAPÉ */
+footer{background:#001219;color:rgba(255,255,255,.7);text-align:center;padding:24px 5%;font-size:.82rem}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+.hero h1{font-size:2rem}
+.hero p{font-size:1rem}
+.grid-passeios{grid-template-columns:1fr}
+.card-footer{flex-wrap:wrap;gap:10px}
+nav a{margin-left:14px;font-size:.78rem}
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="logo">Lençóis <span>Aventura</span></div>
-        <nav>
-            <a href="#passeios">Passeios</a>
-            <a href="#reservas">Reservas</a>
-            <a href="#contato">Contato</a>
-            <a href="#reservas" class="btn-nav-reserva">Reservar Agora</a>
-        </nav>
-    </header>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Descubra os <span>Lençóis Maranhenses</span></h1>
-            <p>Os passeios mais incríveis em Barreirinhas com conforto, segurança e os melhores preços.</p>
-            <div class="hero-buttons">
-                <a href="#passeios" class="btn btn-primary">Ver Passeios</a>
-                <a href="#reservas" class="btn btn-secondary">Reservar Agora</a>
-            </div>
-        </div>
-    </section>
+<header>
+<div class="logo">Lençóis <span>Aventura</span></div>
+<nav>
+<a href="#passeios">Passeios</a>
+<a href="#transfer">Transfer</a>
+<a href="#contato">Contato</a>
+<a href="https://wa.me/5598999999999" class="btn-nav">Reservar</a>
+</nav>
+</header>
 
-    <section id="passeios">
-        <h2 class="section-title">Nossos Passeios</h2>
-        <p class="section-subtitle">Escolha a aventura perfeita para você</p>
-        <div class="passeios-grid" id="passeiosGrid"></div>
-    </section>
+<section class="hero">
+<div>
+<h1>Descubra os <span>Lençóis Maranhenses</span></h1>
+<p>Passeios incríveis em Barreirinhas com conforto, segurança e os melhores preços.</p>
+<p class="sub">Explore lagoas cristalinas, dunas, rios e muito mais</p>
+<div class="hero-buttons">
+<a href="#passeios" class="btn btn-primary">Ver Passeios</a>
+<a href="https://wa.me/5598999999999" class="btn btn-secondary">Fale Conosco</a>
+</div>
+</div>
+</section>
 
-    <section id="reservas">
-        <h2 class="section-title">Faça sua Reserva</h2>
-        <p class="section-subtitle">Preencha os dados abaixo e receba o orçamento com o valor do sinal de 50%</p>
-        <div class="form-section">
-            <form id="formReserva">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Nome completo *</label>
-                        <input type="text" id="nome" required placeholder="Seu nome" />
-                    </div>
-                    <div class="form-group">
-                        <label>Telefone / WhatsApp *</label>
-                        <input type="tel" id="telefone" required placeholder="(99) 99999-9999" />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>E-mail *</label>
-                        <input type="email" id="email" required placeholder="seu@email.com" />
-                    </div>
-                    <div class="form-group">
-                        <label>Quantidade de pessoas *</label>
-                        <input type="number" id="qtdPessoas" required min="1" value="1" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Selecione os passeios desejados *</label>
-                    <div class="checkbox-group" id="passeiosCheckbox"></div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Data preferida *</label>
-                        <input type="date" id="dataPasseio" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Período de preferência</label>
-                        <select id="periodo">
-                            <option value="">Indiferente</option>
-                            <option value="manha">Manhã</option>
-                            <option value="tarde">Tarde</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Observações</label>
-                    <textarea id="observacoes" rows="3" placeholder="Restrições, necessidades especiais, etc."></textarea>
-                </div>
-                <div class="resumo-pedido" id="resumoPedido">
-                    <h4>📋 Resumo do Pedido</h4>
-                    <div id="resumoItens">
-                        <p style="color:#6c757d; font-size:0.9rem;">Selecione os passeios para ver o resumo</p>
-                    </div>
-                </div>
-                <button type="submit" class="btn-submit">Solicitar Reserva</button>
-            </form>
-        </div>
-    </section>
+<section class="passeios-section" id="passeios">
+<div class="count-badge">9 passeios</div>
+<h2 class="section-title">Passeios em Barreirinhas</h2>
+<p class="section-sub">Conheça as melhores experiências nos Lençóis Maranhenses</p>
 
-    <section id="contato" style="text-align:center;">
-        <h2 class="section-title">Entre em Contato</h2>
-        <p class="section-subtitle">Tire dúvidas ou fale diretamente conosco</p>
-        <div class="contato-info">
-            <div class="contato-item">
-                <div class="icone">📱</div>
-                <p>WhatsApp</p>
-                <small>(98) 99999-9999</small>
-            </div>
-            <div class="contato-item">
-                <div class="icone">📧</div>
-                <p>E-mail</p>
-                <small>contato@lencoisaventura.com</small>
-            </div>
-            <div class="contato-item">
-                <div class="icone">📍</div>
-                <p>Localização</p>
-                <small>Barreirinhas - MA</small>
-            </div>
-        </div>
-        <a href="https://wa.me/5598999999999" target="_blank" class="whatsapp-btn">💬 Fale Conosco no WhatsApp</a>
-    </section>
+<div class="grid-passeios" id="gridPasseios"></div>
+</section>
 
-    <footer>
-        <p>© 2026 Lençóis Aventura — Agência de Turismo em Barreirinhas, MA. Todos os direitos reservados.</p>
-    </footer>
+<section class="transfer-section" id="transfer">
+<h2>Transfers para Barreirinhas e Jericoacoara</h2>
+<p>Privativos ou compartilhados. Reserve online com praticidade e confirmação rápida.</p>
+<a href="https://wa.me/5598999999999" class="btn-transfer">Solicitar Orçamento</a>
+</section>
 
-    <script>
-        const passeios = [
-            { id: 'lagoa-bonita', nome: 'Lagoa Bonita', descricao: 'Um dos cenários mais deslumbrantes dos Lençóis.', icone: '🌊', periodo: 'manhã (9h-13h) / tarde (13h30-19h)', precoCompartilhado: 120, precoPrivativo: 350, infoPrivativo: 'até 7 pessoas' },
-            { id: 'lagoa-azul', nome: 'Lagoa Azul', descricao: 'Circuito clássico com lagoas de azul intenso.', icone: '💧', periodo: 'manhã (9h-13h) / tarde (14h-18h)', precoCompartilhado: 120, precoPrivativo: 330, infoPrivativo: 'até 7 pessoas' },
-            { id: 'atins', nome: 'Atins (Dia Completo)', descricao: 'Vila paradisíaca com lagoas e praias desertas.', icone: '🏖️', periodo: 'dia todo (8h-17h)', precoCompartilhado: 180, precoPrivativo: 500, infoPrivativo: 'até 7 pessoas' },
-            { id: 'quadriciclo', nome: 'Quadriciclo', descricao: 'Aventura sobre rodas até a Praia de Caburé.', icone: '🏍️', periodo: 'dia todo (8h30-17h30)', precoCompartilhado: 300, precoPrivativo: 650, infoPrivativo: 'até 2 pessoas' },
-            { id: 'cabure-lancha', nome: 'Caburé (Lancha)', descricao: 'Passeio de lancha pelo Rio Preguiças.', icone: '🚤', periodo: 'dia todo (8h-15h)', precoCompartilhado: 170, precoPrivativo: 1200, infoPrivativo: 'até 10 pessoas' }
-        ];
+<section class="contato-section" id="contato">
+<h2>Entre em Contato</h2>
+<div class="contato-info">
+<div class="contato-item"><div class="icone">📱</div><p>WhatsApp</p><small>(98) 99999-9999</small></div>
+<div class="contato-item"><div class="icone">📧</div><p>E-mail</p><small>contato@lencoisaventura.com</small></div>
+<div class="contato-item"><div class="icone">📍</div><p>Barreirinhas</p><small>MA - Brasil</small></div>
+</div>
+<a href="https://wa.me/5598999999999" class="whatsapp-btn">💬 Fale Conosco</a>
+</section>
 
-        function renderCards() {
-            const grid = document.getElementById('passeiosGrid');
-            grid.innerHTML = passeios.map(p => `
-                <div class="card-passeio">
-                    <div class="card-passeio-img">${p.icone}<span class="tag">Mais Vendido</span></div>
-                    <div class="card-passeio-body">
-                        <h3>${p.nome}</h3>
-                        <p>${p.descricao}</p>
-                        <div class="info-row"><span>⏱ ${p.periodo}</span></div>
-                        <div class="precos">
-                            <div class="preco-item"><span>Compartilhado</span><span class="valor">R$ ${p.precoCompartilhado}/pessoa</span></div>
-                            <div class="preco-item"><span>Privativo</span><span class="valor">R$ ${p.precoPrivativo} (${p.infoPrivativo})</span></div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
+<footer>© 2026 Lençóis Aventura — Agência de Turismo em Barreirinhas, MA</footer>
 
-        function renderCheckboxes() {
-            const container = document.getElementById('passeiosCheckbox');
-            container.innerHTML = passeios.map(p => `
-                <label class="checkbox-item" data-id="${p.id}">
-                    <input type="checkbox" value="${p.id}" />
-                    <span><strong>${p.nome}</strong><br /><small>Comp. R$ ${p.precoCompartilhado} | Priv. R$ ${p.precoPrivativo}</small></span>
-                </label>
-            `).join('');
-            document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(cb => {
-                cb.addEventListener('change', function() {
-                    this.closest('.checkbox-item').classList.toggle('selected', this.checked);
-                    atualizarResumo();
-                });
-            });
-        }
+<script>
+const passeios = [
+{id:1,nome:'Circuito Lagoa Bonita',local:'Barreirinhas, MA',desc:'Um dos mais populares roteiros de Barreirinhas, o Circuito da Lagoa Bonita está entre os mais belos passeios dos Lençóis.',duracao:'4 horas',preco:120,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=600&h=400&fit=crop'},
+{id:2,nome:'Circuito Lagoa Azul',local:'Barreirinhas, MA',desc:'O passeio para os Grandes Lençóis é um dos mais populares da região, com paisagens paradisíacas.',duracao:'4 horas',preco:120,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1587502536575-6dfba0a1e097?w=600&h=400&fit=crop'},
+{id:3,nome:'Atins',local:'Barreirinhas, MA',desc:'Conheça esse paraíso natural, conhecido como a "Jericoacoara Maranhense", porta de entrada do Parque Nacional.',duracao:'7 horas',preco:170,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&h=400&fit=crop'},
+{id:4,nome:'Santo Amaro',local:'Barreirinhas, MA',desc:'Paisagens paradisíacas, areia branca e lagoas de águas cristalinas e refrescantes.',duracao:'10 horas',preco:240,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=600&h=400&fit=crop'},
+{id:5,nome:'Combo Quadriciclo 4x4',local:'Barreirinhas, MA',desc:'Explore o Rio Preguiças de lancha e aventure-se de quadriciclo por praias, dunas e lagoas.',duracao:'8 horas',preco:600,tipo:'Por combo',img:'https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=600&h=400&fit=crop'},
+{id:6,nome:'Circuito Caburé Rio Preguiças',local:'Barreirinhas, MA',desc:'Passeio de lancha voadeira percorrendo o Rio Preguiças até a praia de Caburé.',duracao:'7 horas',preco:110,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1533659828870-95ee305cee5e?w=600&h=400&fit=crop'},
+{id:7,nome:'Trilha de Quadriciclo',local:'Barreirinhas, MA',desc:'Passeio repleto de aventura e emoção para quem busca explorar a região sobre rodas.',duracao:'8 horas',preco:530,tipo:'Por quadriciclo',img:'https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=600&h=400&fit=crop'},
+{id:8,nome:'Boia Cross Cardosa',local:'Barreirinhas, MA',desc:'Águas cristalinas cercado por buritizais, o povoado de Cardosa é uma das atrações naturais da região.',duracao:'3 horas',preco:110,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=600&h=400&fit=crop'},
+{id:9,nome:'Sobrevoo nos Lençóis',local:'Barreirinhas, MA',desc:'Voo panorâmico de 25 minutos revelando a verdadeira dimensão e exuberância desse paraíso natural.',duracao:'25 minutos',preco:950,tipo:'Por adulto',img:'https://images.unsplash.com/photo-1587502536575-6dfba0a1e097?w=600&h=400&fit=crop'}
+];
 
-        function atualizarResumo() {
-            const qtd = parseInt(document.getElementById('qtdPessoas').value) || 1;
-            const checkboxes = document.querySelectorAll('#passeiosCheckbox input[type="checkbox"]:checked');
-            const container = document.getElementById('resumoItens');
-            if (checkboxes.length === 0) {
-                container.innerHTML = '<p style="color:#6c757d; font-size:0.9rem;">Selecione os passeios para ver o resumo</p>';
-                return;
-            }
-            let html = '';
-            let total = 0;
-            checkboxes.forEach(cb => {
-                const p = passeios.find(p => p.id === cb.value);
-                if (!p) return;
-                total += p.precoCompartilhado * qtd;
-                html += `<div class="resumo-linha"><span>${p.icone} ${p.nome}</span><span>R$ ${(p.precoCompartilhado * qtd).toFixed(2)}</span></div>`;
-            });
-            html += `<div class="resumo-linha total"><span>💰 Valor Total (base compartilhado)</span><span>R$ ${total.toFixed(2)}</span></div>`;
-            html += `<div class="resumo-linha sinal"><span>🔒 Sinal (50%) para confirmar</span><span>R$ ${(total * 0.5).toFixed(2)}</span></div>`;
-            container.innerHTML = html;
-        }
+const grid = document.getElementById('gridPasseios');
+grid.innerHTML = passeios.map(p => `
+<div class="card">
+<div class="card-img" style="background-image:url('${p.img}')"><span class="badge">Destaque</span></div>
+<div class="card-body">
+<h3>${p.nome}</h3>
+<div class="local">📍 ${p.local}</div>
+<p>${p.desc}</p>
+<div class="card-footer">
+<div class="info">⏱ ${p.duracao}</div>
+<div class="preco">R$ ${p.preco.toFixed(2).replace('.',',')} <small>${p.tipo}</small></div>
+</div>
+</div>
+</div>
+`).join('');
+</script>
 
-        document.getElementById('qtdPessoas').addEventListener('input', atualizarResumo);
-
-        document.getElementById('formReserva').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const nome = document.getElementById('nome').value.trim();
-            const telefone = document.getElementById('telefone').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const qtd = document.getElementById('qtdPessoas').value;
-            const data = document.getElementById('dataPasseio').value;
-            const periodo = document.getElementById('periodo').value;
-            const observacoes = document.getElementById('observacoes').value.trim();
-            const selecionados = document.querySelectorAll('#passeiosCheckbox input[type="checkbox"]:checked');
-            if (selecionados.length === 0) { alert('Selecione pelo menos um passeio!'); return; }
-            const nomesPasseios = Array.from(selecionados).map(cb => {
-                const p = passeios.find(p => p.id === cb.value);
-                return p ? p.nome : cb.value;
-            });
-            let total = 0;
-            selecionados.forEach(cb => {
-                const p = passeios.find(p => p.id === cb.value);
-                if (p) total += p.precoCompartilhado * parseInt(qtd);
-            });
-            const sinal = total * 0.5;
-            const periodoLabel = periodo === 'manha' ? 'Manhã' : periodo === 'tarde' ? 'Tarde' : 'Indiferente';
-            const msg = `Olá! Gostaria de fazer uma reserva:\n\n👤 Nome: ${nome}\n📱 WhatsApp: ${telefone}\n📧 E-mail: ${email}\n👥 Pessoas: ${qtd}\n📅 Data: ${data}\n⏰ Período: ${periodoLabel}\n\n🎯 Passeios:\n${nomesPasseios.map(n => `- ${n}`).join('\n')}\n\n💰 Valor total: R$ ${total.toFixed(2)}\n🔒 Sinal (50%): R$ ${sinal.toFixed(2)}\n\n📝 Obs: ${observacoes || 'Nenhuma'}`;
-            window.open(`https://wa.me/5598999999999?text=${encodeURIComponent(msg)}`, '_blank');
-            alert(`✅ Pedido gerado!\n\nValor total: R$ ${total.toFixed(2)}\nSinal (50%): R$ ${sinal.toFixed(2)}\n\nVocê será redirecionado para o WhatsApp.`);
-        });
-
-        const hoje = new Date();
-        hoje.setDate(hoje.getDate() + 1);
-        document.getElementById('dataPasseio').min = hoje.toISOString().split('T')[0];
-
-        renderCards();
-        renderCheckboxes();
-    </script>
 </body>
 </html>
