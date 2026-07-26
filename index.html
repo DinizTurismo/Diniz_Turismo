@@ -59,23 +59,23 @@ nav a:hover{color:#0a9396}
 .btn-select .icon-check{width:17px;height:17px;border-radius:4px;border:1.5px solid #adb5bd;display:flex;align-items:center;justify-content:center;font-size:.58rem;transition:all .2s;flex-shrink:0}
 .card.selecionado .btn-select{border-color:#0a9396;background:rgba(10,147,150,0.06);color:#0a9396}
 .card.selecionado .btn-select .icon-check{background:#0a9396;border-color:#0a9396;color:#fff}
-.periodo-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden;flex-shrink:0}
-.periodo-btn{padding:5px 10px;border:none;background:#fafafa;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;color:#6c757d;cursor:pointer;transition:all .15s}
-.periodo-btn.ativo{background:#0a9396;color:#fff}
-.periodo-btn:not(.ativo):hover{background:#e9ecef}
-.periodo-btn+.periodo-btn{border-left:1.5px solid #e0e0e0}
-/* CONTROLES RESPONSIVOS */
-.controls-grid{display:flex;flex-direction:column;gap:8px}
-.controls-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.control-group{display:flex;align-items:center;gap:6px;flex:1;min-width:0}
-.control-group label{font-size:.68rem;color:#6c757d;flex-shrink:0}
+
+/* CONTROLES PADRÃO - IGUAL PARA TODOS OS CARDS */
+.controls-stack{display:flex;flex-direction:column;gap:6px}
+.controls-row{display:flex;align-items:center;gap:8px}
+.control-unit{display:flex;align-items:center;gap:5px;flex:1;min-width:0}
+.control-unit label{font-size:.68rem;color:#6c757d;flex-shrink:0;line-height:1}
 .date-input{border:1.5px solid #e0e0e0;border-radius:8px;padding:6px 8px;font-family:'Inter',sans-serif;font-size:.72rem;color:#1a1a2e;background:#fafafa;outline:none;transition:border .2s;flex:1;min-width:0;max-width:150px}
 .date-input:focus{border-color:#0a9396;background:#fff}
 .people-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden;flex-shrink:0}
 .people-control button{width:30px;height:28px;border:none;background:#fafafa;font-size:.85rem;font-weight:700;color:#0a9396;cursor:pointer;transition:background .15s;display:flex;align-items:center;justify-content:center}
 .people-control button:hover{background:#e9ecef}
 .people-control span{width:32px;text-align:center;font-weight:700;font-size:.76rem;color:#1a1a2e}
-
+.periodo-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden;flex-shrink:0}
+.periodo-btn{padding:5px 10px;border:none;background:#fafafa;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;color:#6c757d;cursor:pointer;transition:all .15s}
+.periodo-btn.ativo{background:#0a9396;color:#fff}
+.periodo-btn:not(.ativo):hover{background:#e9ecef}
+.periodo-btn+.periodo-btn{border-left:1.5px solid #e0e0e0}
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #f0f0f0}
 .card-footer .info{display:flex;align-items:center;gap:5px;font-size:.7rem;color:#6c757d}
 .card-footer .preco{font-size:1rem;font-weight:700;color:#0a9396}
@@ -138,8 +138,6 @@ nav a:hover{color:#0a9396}
 .contato-item small{color:#6c757d;font-size:.75rem}
 footer{background:#001219;color:rgba(255,255,255,.6);text-align:center;padding:20px 5%;font-size:.74rem}
 footer strong{color:rgba(255,255,255,.8)}
-
-/* RESPONSIVO PRINCIPAL */
 @media(min-width:769px){
 .logo-text small{display:block;font-size:0.55rem;letter-spacing:.8px;text-transform:uppercase;line-height:1}
 nav a{margin-left:22px;font-size:.88rem}
@@ -159,18 +157,15 @@ nav a{margin-left:22px;font-size:.88rem}
 .detalhe-hero{height:220px}
 .galeria{grid-template-columns:repeat(2,1fr)}.galeria-item{height:70px}
 .passeios-section{padding:60px 5% 140px}
+.controls-row{flex-direction:column;align-items:stretch}
+.control-unit{flex-wrap:wrap}
+.date-input{max-width:100%}
 .orcamento-bar{padding:10px 5%;flex-direction:column;align-items:stretch}
 .orcamento-bar .resumo-info{justify-content:space-between;flex:1}
 .btn-whatsapp-orcamento{justify-content:center;width:100%}
 .whatsapp-float{bottom:76px;right:12px;padding:8px 14px;font-size:.76rem}
 .contato-section{padding:40px 5% 110px}
-.logo-text small{display:block;font-size:0.5rem;letter-spacing:.5px;text-transform:uppercase}
-.controls-row{flex-direction:column;align-items:stretch}
-.control-group{flex-wrap:wrap}
-.date-input{max-width:100%}
-.periodo-control{align-self:flex-start}
 .detalhe-actions .action-row{flex-direction:column;align-items:stretch}
-.detalhe-actions .action-row .people-control{align-self:flex-start}
 }
 @media(max-width:380px){
 .hero h1{font-size:1.7rem}
@@ -286,7 +281,7 @@ var descs_longas = [
 "O Circuito Lagoa Azul é uma experiência inesquecível pelos Grandes Lençóis. O trajeto de veículo 4x4 percorre as dunas até chegar à Lagoa Azul, que recebe esse nome pela cor intensa de suas águas. Considerado um dos mais bonitos da região, este circuito oferece paisagens de tirar o fôlego com dunas que se estendem até onde a vista alcança. O banho na Lagoa Azul é o ponto alto: águas mornas e cristalinas que proporcionam relaxamento total. Além da lagoa principal, o passeio inclui paradas em outros pontos estratégicos para fotos. O guia acompanha todo o percurso. Duração aproximada de 4 horas, com saída de Barreirinhas. Leve protetor solar, chapéu e roupas leves.",
 "Atins é um distrito de Barreirinhas conhecido como a 'Jericoacoara Maranhense'. Este paraíso natural é a porta de entrada para o Parque Nacional dos Lençóis Maranhenses. O povoado preserva um clima rústico e aconchegante, com ruas de areia e uma atmosfera tranquila. O passeio inclui visitas a lagoas cristalinas, dunas e o encontro do Rio Preguiças com o mar. As opções de hospedagem e gastronomia local são um capítulo à parte, com restaurantes rústicos servindo peixes e frutos do mar frescos. Ideal para quem busca contato verdadeiro com a natureza, Atins é point obrigatório para quem quer vivenciar os Lençóis de forma autêntica.",
 "Para os aventureiros de plantão, a Trilha de Quadriciclo é a pedida perfeita. O passeio percorre trilhas incríveis pelas dunas e vegetação típica, proporcionando uma descarga de adrenalina inesquecível. Você pilotará seu próprio veículo acompanhado por guia experiente que conhece todos os segredos da região. O roteiro inclui paradas em pontos estratégicos com vistas panorâmicas de tirar o fôlego. Durante aproximadamente 8 horas de aventura, você vai explorar cantos dos Lençóis que poucos visitantes conhecem. Recomenda-se levar protetor solar, óculos escuros, roupas leves e fechadas (para proteção solar), boné e água. A aventura é em dobro pilotando em dupla!",
-"O Circuito Caburé é um delicioso passeio de lancha voadeira pelo Rio Preguiças. A navegação começa saindo de Barreirinhas e segue pelos meandros do rio cercado por vegetação exuberante. O destino é a deslumbrante praia de Caburé, onde o rio encontra o mar, formando paisagens espetaculares. Durante o percurso, é possível observar a fauna local, incluindo aves e, com sorte, peixes-boi. O passeio inclui paradas em pontos estratégicos com estrutura para alimentação e descanso. São aproximadamente 7 horas de passeio, combinando navegação, natureza e momentos de lazer à beira do rio.",
+"O Circuito Caburé é um delicioso passeio de lancha voadeira pelo Rio Preguiças. A navegação começa saindo de Barreirinhas e segue pelos meandros do rio cercado por vegetação exuberante. O destino é a deslumbrante praia de Caburé, donde o rio encontra o mar, formando paisagens espetaculares. Durante o percurso, é possível observar a fauna local, incluindo aves e, com sorte, peixes-boi. O passeio inclui paradas em pontos estratégicos com estrutura para alimentação e descanso. São aproximadamente 7 horas de passeio, combinando navegação, natureza e momentos de lazer à beira do rio.",
 "Boia Cross no povoado de Cardosa é um dos passeios mais refrescantes e divertidos dos Lençóis. A atividade consiste em flutuar em boias pelas águas cristalinas do rio, cercado por buritizais e vegetação nativa. O percurso é seguro e adequado para todas as idades, inclusive crianças. O balneário de Cardosa oferece estrutura com quiosques e áreas para descanso. O local é ideal para famílias que buscam um dia de lazer em contato com a natureza. A transparência das águas permite ver o fundo do rio durante todo o trajeto. Duração de aproximadamente 3 horas."
 ];
 var duracoes = ["4 horas","4 horas","7 horas","8 horas","7 horas","3 horas"];
@@ -391,23 +386,21 @@ html += '<div class="resumo-text">' + descs_curtas[i] + '</div>';
 html += '<div class="card-actions">';
 html += '<button class="btn-select" id="btn-select-' + i + '" onclick="togglePasseio(' + i + ')"><span class="icon-check" id="icon-check-' + i + '">✓</span> <span id="btn-text-' + i + '">Selecionar</span></button>';
 
-html += '<div class="controls-grid">';
+/* CONTROLES PADRÃO - IGUAL PARA TODO MUNDO */
+html += '<div class="controls-stack">';
 html += '<div class="controls-row">';
-html += '<div class="control-group">';
-html += '<label>📅</label>';
-html += '<input type="date" class="date-input" id="data-' + i + '" min="' + minDate + '" value="' + minDate + '" onchange="atualizarData(' + i + ')">';
-html += '</div>';
-html += '<div class="control-group">';
-html += '<label>👥</label>';
-html += '<div class="people-control"><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',-1)">−</button><span id="pessoas-' + i + '">1</span><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',1)">+</button></div>';
+html += '<div class="control-unit"><label>📅</label><input type="date" class="date-input" id="data-' + i + '" min="' + minDate + '" value="' + minDate + '" onchange="atualizarData(' + i + ')"></div>';
+html += '<div class="control-unit"><label>👥</label><div class="people-control"><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',-1)">−</button><span id="pessoas-' + i + '">1</span><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',1)">+</button></div></div>';
 html += '</div>';
 if(temPeriodo[i]) {
+html += '<div class="controls-row">';
 html += '<div class="periodo-control" id="periodo-control-' + i + '">';
 html += '<button class="periodo-btn ativo" id="periodo-manha-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'manha\')">🌅 Manhã</button>';
 html += '<button class="periodo-btn" id="periodo-tarde-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'tarde\')">🌤 Tarde</button>';
 html += '</div>';
+html += '</div>';
 }
-html += '</div></div>';
+html += '</div>';
 
 html += '</div>';
 html += '<div class="card-footer">';
@@ -449,20 +442,11 @@ html += '<div class="detalhe-descricao">';
 html += '<h3>📖 Sobre o passeio</h3>';
 html += '<p>' + descs_longas[id] + '</p></div>';
 html += '<div class="detalhe-actions">';
-html += '<div class="action-row">';
-html += '<span class="action-label">📅 Data</span>';
-html += '<input type="date" class="date-input" id="det-data" min="' + minDate + '" value="' + (datas[id]||minDate) + '" onchange="detAtualizarData(' + id + ')">';
-html += '</div>';
+html += '<div class="action-row"><span class="action-label">📅 Data</span><input type="date" class="date-input" id="det-data" min="' + minDate + '" value="' + (datas[id]||minDate) + '" onchange="detAtualizarData(' + id + ')"></div>';
 if(temPeriodo[id]) {
-html += '<div class="action-row">';
-html += '<span class="action-label">⏰ Período</span>';
-html += periodoHtml;
-html += '</div>';
+html += '<div class="action-row"><span class="action-label">⏰ Período</span>' + periodoHtml + '</div>';
 }
-html += '<div class="action-row">';
-html += '<span class="action-label">👥 Pessoas</span>';
-html += '<div class="people-control"><button onclick="detMudarPessoas(' + id + ',-1)">−</button><span id="det-pessoas">' + (pessoas[id]||1) + '</span><button onclick="detMudarPessoas(' + id + ',1)">+</button></div>';
-html += '</div>';
+html += '<div class="action-row"><span class="action-label">👥 Pessoas</span><div class="people-control"><button onclick="detMudarPessoas(' + id + ',-1)">−</button><span id="det-pessoas">' + (pessoas[id]||1) + '</span><button onclick="detMudarPessoas(' + id + ',1)">+</button></div></div>';
 html += '<button class="' + selecionadoClass + '" id="btn-det-select" onclick="detTogglePasseio(' + id + ')">' + selecionadoTexto + '</button>';
 html += '</div>';
 document.getElementById("detalhe-conteudo").innerHTML = html;
@@ -550,7 +534,7 @@ function atualizarResumo() {
 var total = 0;
 var count = 0;
 var totalPessoasGeral = 0;
-var msg = "Olá! Gostaria de solicitar um orçamento para os seguintes passeios:%0A%0A";
+var msg = "Olá! Gostaria de verificar a disponibilidade para os seguintes passeios:%0A%0A";
 msg += "Passeios selecionados:%0A";
 for(var i=0;i<nomes.length;i++) {
 if(selecionados[i]) {
