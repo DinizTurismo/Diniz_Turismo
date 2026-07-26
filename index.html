@@ -59,37 +59,27 @@ nav a:hover{color:#0a9396}
 .card-body h3{font-size:1rem;font-weight:700;margin-bottom:2px;color:#1a1a2e}
 .card-body .local{font-size:.76rem;color:#6c757d;margin-bottom:8px;display:flex;align-items:center;gap:4px}
 .card-body p{font-size:.82rem;color:#6c757d;line-height:1.45;margin-bottom:12px}
-
-/* AÇÕES DO CARD */
 .card-actions{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
-
-/* BOTÃO DE SELEÇÃO - PRIMEIRO */
 .btn-select{display:flex;align-items:center;justify-content:center;gap:8px;padding:9px 16px;border-radius:8px;font-weight:600;font-size:.8rem;border:1.5px solid #e0e0e0;background:#fafafa;color:#6c757d;cursor:pointer;transition:all .2s;user-select:none;width:100%}
 .btn-select:hover{border-color:#0a9396;color:#0a9396;background:rgba(10,147,150,0.04)}
 .btn-select .icon-check{width:18px;height:18px;border-radius:4px;border:1.5px solid #adb5bd;display:flex;align-items:center;justify-content:center;font-size:.6rem;transition:all .2s;flex-shrink:0}
 .card.selecionado .btn-select{border-color:#0a9396;background:rgba(10,147,150,0.06);color:#0a9396}
 .card.selecionado .btn-select .icon-check{background:#0a9396;border-color:#0a9396;color:#fff}
-
-/* LINHA INFERIOR: DATA + PERÍODO */
 .card-actions-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .card-data-wrap{flex:1;display:flex;align-items:center;gap:6px;min-width:130px}
 .card-data-label{font-size:.7rem;font-weight:600;color:#495057;text-transform:uppercase;letter-spacing:.2px;white-space:nowrap}
 .card-data-input{border:1.5px solid #e0e0e0;border-radius:8px;padding:5px 10px;font-family:'Inter',sans-serif;font-size:.76rem;color:#1a1a2e;background:#fafafa;outline:none;transition:border .2s;flex:1;min-width:0;cursor:pointer}
 .card-data-input:focus{border-color:#0a9396;background:#fff}
 .card-data-input:disabled{opacity:.5;cursor:not-allowed}
-
-/* SELETOR DE PERÍODO (MANHÃ/TARDE) - SÓ LAGOA BONITA */
 .periodo-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden}
 .periodo-btn{padding:5px 14px;border:none;background:#fafafa;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;color:#6c757d;cursor:pointer;transition:all .15s}
 .periodo-btn.ativo{background:#0a9396;color:#fff}
 .periodo-btn:not(.ativo):hover{background:#e9ecef}
 .periodo-btn+.periodo-btn{border-left:1.5px solid #e0e0e0}
-
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid #f0f0f0}
 .card-footer .info{display:flex;align-items:center;gap:5px;font-size:.74rem;color:#6c757d}
 .card-footer .preco{font-size:1.1rem;font-weight:700;color:#0a9396}
 .card-footer .preco small{font-weight:400;font-size:.64rem;color:#6c757d}
-
 .orcamento-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);z-index:998;padding:14px 5%;box-shadow:0 -4px 24px rgba(0,0,0,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(0,0,0,.04);transform:translateY(100%);transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
 .orcamento-bar.visivel{transform:translateY(0)}
 .orcamento-bar .resumo-info{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -222,13 +212,14 @@ var duracoes = ["4 horas","4 horas","7 horas","8 horas","7 horas","3 horas"];
 var precos = [150,120,200,550,150,110];
 var tipos = ["Por pessoa","Por pessoa","Por adulto","Por quadriciclo","Por adulto","Por adulto"];
 
-// Lagoa Bonita (index 0) tem período. Demais são dia todo.
-var temPeriodo = [true, false, false, false, false, false];
+/* ✅ Lagoa Bonita (0) e Lagoa Azul (1) têm período manhã/tarde */
+/* Demais são dia todo */
+var temPeriodo = [true, true, false, false, false, false];
 
 var pessoas = 1;
 var selecionados = {};
 var datas = {};
-var periodos = {}; // só usado para Lagoa Bonita
+var periodos = {};
 
 var amanha = new Date();
 amanha.setDate(amanha.getDate() + 1);
@@ -240,7 +231,6 @@ var partes = d.split("-");
 return partes[2] + "/" + partes[1] + "/" + partes[0];
 }
 
-// Renderiza cards
 var html = "";
 for(var i=0;i<nomes.length;i++){
 html += '<div class="card" id="card-' + i + '">';
@@ -250,18 +240,12 @@ html += '<h3>' + nomes[i] + '</h3>';
 html += '<div class="local">📍 ' + locais[i] + '</div>';
 html += '<p>' + descs[i] + '</p>';
 html += '<div class="card-actions">';
-
-// Botão de seleção - PRIMEIRO
 html += '<button class="btn-select" id="btn-select-' + i + '" onclick="togglePasseio(' + i + ')"><span class="icon-check" id="icon-check-' + i + '">✓</span> <span id="btn-text-' + i + '">Selecionar</span></button>';
-
-// Linha inferior: data + período (se aplicável)
 html += '<div class="card-actions-row">';
 html += '<div class="card-data-wrap">';
 html += '<span class="card-data-label">📅 Data</span>';
 html += '<input type="date" class="card-data-input" id="data-' + i + '" min="' + minDate + '" value="' + minDate + '" onchange="atualizarData(' + i + ')">';
 html += '</div>';
-
-// Período - só para Lagoa Bonita
 if(temPeriodo[i]) {
 html += '<div class="periodo-control" id="periodo-control-' + i + '">';
 html += '<button class="periodo-btn ativo" id="periodo-manha-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'manha\')">🌅 Manhã</button>';
@@ -270,10 +254,7 @@ html += '</div>';
 } else {
 html += '<span style="font-size:.7rem;color:#adb5bd;font-weight:500;letter-spacing:.2px">⏳ Dia todo</span>';
 }
-
-html += '</div>'; // fecha card-actions-row
-html += '</div>'; // fecha card-actions
-
+html += '</div></div>';
 html += '<div class="card-footer">';
 html += '<div class="info">⏱ ' + duracoes[i] + '</div>';
 html += '<div class="preco">R$ ' + precos[i].toFixed(2).replace(".",",") + ' <small>' + tipos[i] + '</small></div>';
@@ -281,7 +262,6 @@ html += '</div></div></div>';
 }
 document.getElementById("gridPasseios").innerHTML = html;
 
-// Inicializa
 for(var i=0;i<nomes.length;i++){
 datas[i] = minDate;
 periodos[i] = "manha";
