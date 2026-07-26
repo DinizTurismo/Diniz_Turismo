@@ -109,26 +109,31 @@ nav a{margin-left:14px;font-size:.78rem}
 </section>
 <footer>© 2026 Diniz Turismo — Agência de Turismo em Barreirinhas, MA</footer>
 <script>
-var dados = [
-["Circuito Lagoa Bonita","Barreirinhas, MA","Um dos mais populares roteiros de Barreirinhas, o Circuito da Lagoa Bonita esta entre os mais belos passeios dos Lencois.","4 horas",150,"Por pessoa","https://photos.fife.usercontent.google.com/pw/AP1GczPMhXOzes6S800peLaKtWjnCKcHciDK1ceTZRECbUrpKCP970zDPtR2xg=w710-h947-s-no-gm?authuser=1"],
-["Circuito Lagoa Azul","Barreirinhas, MA","O passeio para os Grandes Lencois e um dos mais populares da regiao, com paisagens paradisiacas.","4 horas",120,"Por pessoa","https://photos.fife.usercontent.google.com/pw/AP1GczNq7P6pbJlcXui3XzSpHOy4LFyku68ypgLtcIyzhejVJlLKnaa6yNDBZQ=w1262-h947-s-no-gm?authuser=1"],
-["Atins","Barreirinhas, MA","Conheca esse paraiso natural, conhecido como a Jericoacoara Maranhense, porta de entrada do Parque Nacional.","7 horas",200,"Por adulto","https://photos.fife.usercontent.google.com/pw/AP1GczPeCURJnl_5c68FvJBHXqJ7kRqI07eMhtrGQtz_-jPSzPZHo3TuIFYbYQ=w800-h600-s-no-gm?authuser=1"],
-["Trilha de Quadriciclo","Barreirinhas, MA","Passeio repleto de aventura e emocao para quem busca explorar a regiao sobre rodas.","8 horas",550,"Por quadriciclo","https://photos.fife.usercontent.google.com/pw/AP1GczMEcyDXQK6XGk7G_u1IT-sKG0_NqQA5Y7tD-OiZI7aVtMm8M8tYV7Pw=w1262-h947-s-no-gm?authuser=1"],
-["Circuito Cabure Rio Preguicas","Barreirinhas, MA","Passeio de lancha voadeira percorrendo o Rio Preguicas ate a praia de Cabure.","7 horas",150,"Por adulto","https://photos.fife.usercontent.google.com/pw/AP1GczP8mWrgxPLBIDMA_popcU-DvEiz-K66r0MHd3Zs0cqmRuZhP7BBoyoJKg=w387-h516-s-no-gm?authuser=1"],
-["Boia Cross Cardosa","Barreirinhas, MA","Aguas cristalinas cercado por buritizais, o povoado de Cardosa e uma das atracoes naturais da regiao.","3 horas",110,"Por adulto","https://photos.fife.usercontent.google.com/pw/AP1GczMAwHewqckqZgEf-qLskrN50429P6RrxXsyVyAhPvt2tbBCKvSxnpfWJQ=w401-h498-s-no-gm?authuser=1"]
+var fotos = [
+"https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=600&h=400&fit=crop",
+"https://images.unsplash.com/photo-1587502536575-6dfba0a1e097?w=600&h=400&fit=crop",
+"https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&h=400&fit=crop",
+"https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=600&h=400&fit=crop",
+"https://images.unsplash.com/photo-1533659828870-95ee305cee5e?w=600&h=400&fit=crop",
+"https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=600&h=400&fit=crop"
 ];
+var nomes = ["Circuito Lagoa Bonita","Circuito Lagoa Azul","Atins","Trilha de Quadriciclo","Circuito Cabure Rio Preguicas","Boia Cross Cardosa"];
+var locais = ["Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA"];
+var descs = ["Um dos mais populares roteiros de Barreirinhas, o Circuito da Lagoa Bonita esta entre os mais belos passeios dos Lencois.","O passeio para os Grandes Lencois e um dos mais populares da regiao, com paisagens paradisiacas.","Conheca esse paraiso natural, conhecido como a Jericoacoara Maranhense, porta de entrada do Parque Nacional.","Passeio repleto de aventura e emocao para quem busca explorar a regiao sobre rodas.","Passeio de lancha voadeira percorrendo o Rio Preguicas ate a praia de Cabure.","Aguas cristalinas cercado por buritizais, o povoado de Cardosa e uma das atracoes naturais da regiao."];
+var duracoes = ["4 horas","4 horas","7 horas","8 horas","7 horas","3 horas"];
+var precos = [150,120,200,550,150,110];
+var tipos = ["Por pessoa","Por pessoa","Por adulto","Por quadriciclo","Por adulto","Por adulto"];
 var html = "";
-for(var i=0;i<dados.length;i++){
-var d = dados[i];
+for(var i=0;i<nomes.length;i++){
 html += '<div class="card">';
-html += '<div class="card-img" style="background-image:url(' + d[6] + ')"><span class="badge">Destaque</span></div>';
+html += '<div class="card-img" style="background-image:url(' + fotos[i] + ')"><span class="badge">Destaque</span></div>';
 html += '<div class="card-body">';
-html += '<h3>' + d[0] + '</h3>';
-html += '<div class="local">📍 ' + d[1] + '</div>';
-html += '<p>' + d[2] + '</p>';
+html += '<h3>' + nomes[i] + '</h3>';
+html += '<div class="local">📍 ' + locais[i] + '</div>';
+html += '<p>' + descs[i] + '</p>';
 html += '<div class="card-footer">';
-html += '<div class="info">⏱ ' + d[3] + '</div>';
-html += '<div class="preco">R$ ' + d[4].toFixed(2).replace(".",",") + ' <small>' + d[5] + '</small></div>';
+html += '<div class="info">⏱ ' + duracoes[i] + '</div>';
+html += '<div class="preco">R$ ' + precos[i].toFixed(2).replace(".",",") + ' <small>' + tipos[i] + '</small></div>';
 html += '</div></div></div>';
 }
 document.getElementById("gridPasseios").innerHTML = html;
