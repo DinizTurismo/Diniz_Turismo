@@ -23,7 +23,7 @@ nav a:hover{color:#0a9396}
 .btn-nav{background:#0a9396;color:#fff!important;padding:8px 18px;border-radius:8px;font-weight:600;font-size:0.85rem}
 .btn-nav:hover{background:#087d80!important}
 
-/* HERO COM FOTO DE PAISAGEM */
+/* HERO */
 .hero{width:100%;height:100vh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
 .hero-bg::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.7) 100%)}
@@ -39,26 +39,38 @@ nav a:hover{color:#0a9396}
 .btn-hero-secondary{background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(4px)}
 .btn-hero-secondary:hover{background:rgba(255,255,255,0.2);border-color:#e9c46a;color:#e9c46a;transform:translateY(-2px)}
 
-/* WHATSAPP FLOATING */
-.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:12px 22px;border-radius:50px;font-weight:600;font-size:0.9rem;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all .3s}
-.whatsapp-float:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
-.whatsapp-float .icon{width:20px;height:20px}
-
 /* SEÇÃO PASSEIOS */
-.passeios-section{padding:80px 5%;max-width:1200px;margin:0 auto}
-.section-header{text-align:center;margin-bottom:48px}
+.passeios-section{padding:100px 5% 120px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.section-header{text-align:center;margin-bottom:36px}
 .section-header .count-badge{display:inline-block;background:rgba(10,147,150,0.08);color:#0a9396;padding:5px 18px;border-radius:20px;font-size:.78rem;font-weight:600;margin-bottom:12px;letter-spacing:.3px}
 .section-title{font-size:2rem;font-weight:800;color:#1a1a2e;margin-bottom:8px}
 .section-sub{color:#6c757d;font-size:.95rem}
 
-.grid-passeios{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+/* BARRA DE CONFIGURAÇÃO */
+.config-bar{background:#fff;border-radius:14px;padding:20px 24px;margin-bottom:32px;box-shadow:0 2px 16px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04);display:flex;flex-wrap:wrap;align-items:center;gap:24px}
+.config-item{display:flex;align-items:center;gap:10px}
+.config-label{font-size:.8rem;font-weight:600;color:#495057;text-transform:uppercase;letter-spacing:.5px}
+.pessoas-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:10px;overflow:hidden}
+.pessoas-control button{width:36px;height:36px;border:none;background:#f8f9fa;font-size:1.1rem;font-weight:700;color:#0a9396;cursor:pointer;transition:background .2s}
+.pessoas-control button:hover{background:#e9ecef}
+.pessoas-control span{width:40px;text-align:center;font-weight:700;font-size:1rem;color:#1a1a2e}
+.data-input{border:1.5px solid #e0e0e0;border-radius:10px;padding:7px 12px;font-family:'Inter',sans-serif;font-size:.85rem;color:#1a1a2e;background:#f8f9fa;outline:none;transition:border .2s}
+.data-input:focus{border-color:#0a9396;background:#fff}
+.config-resumo{margin-left:auto;display:flex;align-items:center;gap:12px}
+.config-resumo .total-label{font-size:.82rem;color:#6c757d}
+.config-resumo .total-valor{font-size:1.2rem;font-weight:800;color:#0a9396}
 
-.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:all .4s cubic-bezier(.25,.46,.45,.94);border:1px solid rgba(0,0,0,.04)}
-.card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
+/* CARDS */
+.grid-passeios{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:all .4s cubic-bezier(.25,.46,.45,.94);border:2px solid transparent;position:relative;cursor:pointer}
+.card:hover{box-shadow:0 16px 48px rgba(0,0,0,.08)}
+.card.selecionado{border-color:#0a9396;box-shadow:0 8px 32px rgba(10,147,150,0.12)}
+.card.selecionado .check-overlay{background:#0a9396;color:#fff}
+.check-overlay{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:7px;background:rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;font-size:.9rem;z-index:3;transition:all .2s;font-weight:700;color:#6c757d}
 .card-img{height:200px;background-size:cover;background-position:center;position:relative}
 .card-img .badge{position:absolute;top:14px;left:14px;background:#e9c46a;color:#1a1a2e;padding:4px 12px;border-radius:6px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
 .card-body{padding:20px 22px 22px}
-.card-body h3{font-size:1.05rem;font-weight:700;margin-bottom:4px;color:#1a1a2e}
+.card-body h3{font-size:1.05rem;font-weight:700;margin-bottom:4px;color:#1a1a2e;padding-right:30px}
 .card-body .local{font-size:.78rem;color:#6c757d;margin-bottom:8px;display:flex;align-items:center;gap:4px}
 .card-body p{font-size:.83rem;color:#6c757d;line-height:1.5;margin-bottom:14px}
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid #f0f0f0}
@@ -66,8 +78,22 @@ nav a:hover{color:#0a9396}
 .card-footer .preco{font-size:1.15rem;font-weight:700;color:#0a9396}
 .card-footer .preco small{font-weight:400;font-size:.66rem;color:#6c757d}
 
+/* BARRA DE ORÇAMENTO FIXA */
+.orcamento-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);z-index:998;padding:14px 5%;box-shadow:0 -4px 24px rgba(0,0,0,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(0,0,0,.04);transform:translateY(100%);transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.orcamento-bar.visivel{transform:translateY(0)}
+.orcamento-bar .resumo-info{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.orcamento-bar .resumo-item{font-size:.85rem;color:#495057}
+.orcamento-bar .resumo-item strong{color:#0a9396;font-size:1.05rem}
+.btn-whatsapp-orcamento{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 28px;border-radius:10px;font-weight:600;font-size:.9rem;transition:all .3s;white-space:nowrap}
+.btn-whatsapp-orcamento:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3)}
+
+/* WHATSAPP FLOATING (só aparece quando nada selecionado) */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:12px 22px;border-radius:50px;font-weight:600;font-size:0.9rem;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all .3s}
+.whatsapp-float:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
+.whatsapp-float .icon{width:20px;height:20px}
+
 /* CONTATO */
-.contato-section{background:#fff;text-align:center;padding:70px 5%;border-top:1px solid rgba(0,0,0,.03)}
+.contato-section{background:#fff;text-align:center;padding:70px 5% 100px;border-top:1px solid rgba(0,0,0,.03)}
 .contato-section h2{font-size:1.5rem;font-weight:800;margin-bottom:28px}
 .contato-grid{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:28px}
 .contato-item{text-align:center}
@@ -84,14 +110,20 @@ footer strong{color:rgba(255,255,255,.8)}
 .hero h1{font-size:2.2rem}
 .hero p{font-size:.95rem}
 .hero{height:90vh;min-height:500px}
+.config-bar{flex-direction:column;align-items:stretch;gap:14px}
+.config-resumo{margin-left:0;justify-content:space-between}
 .grid-passeios{grid-template-columns:1fr}
 .card-footer{flex-wrap:wrap;gap:6px}
 nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
 .btn-nav{padding:6px 12px;font-size:.72rem}
 .logo-img{width:28px;height:28px}
 .logo-text{font-size:.95rem}
-.passeios-section{padding:60px 5%}
-.whatsapp-float{bottom:16px;right:16px;padding:10px 16px;font-size:.8rem}
+.passeios-section{padding:60px 5% 140px}
+.orcamento-bar{padding:12px 5%;flex-direction:column;align-items:stretch}
+.orcamento-bar .resumo-info{justify-content:space-between}
+.btn-whatsapp-orcamento{justify-content:center}
+.whatsapp-float{bottom:80px;right:16px;padding:10px 16px;font-size:.8rem}
+.contato-section{padding:60px 5% 140px}
 }
 </style>
 </head>
@@ -110,7 +142,7 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
 </header>
 
 <section class="hero">
-<div class="hero-bg" style="background-image:url('https://raw.githubusercontent.com/DinizTurismo/Diniz_Turismo/main/atins.jpg')"></div>
+<div class="hero-bg" style="background-image:url('https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T15-32-23-166Z_Original_user_intent_A_breathtaking_aerial_view_o.png')"></div>
 <div class="hero-content">
 <div class="tagline">🌴 Lençóis Maranhenses</div>
 <h1>Viva os <span>Lençóis Maranhenses</span></h1>
@@ -126,10 +158,48 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
 <div class="section-header">
 <div class="count-badge">✨ 6 passeios imperdíveis</div>
 <h2 class="section-title">Passeios em Barreirinhas</h2>
-<p class="section-sub">Conheça as melhores experiências nos Lençóis Maranhenses</p>
+<p class="section-sub">Selecione os passeios, escolha a data e a quantidade de pessoas</p>
 </div>
+
+<div class="config-bar">
+<div class="config-item">
+<span class="config-label">👥 Pessoas</span>
+<div class="pessoas-control">
+<button onclick="mudarPessoas(-1)">−</button>
+<span id="qtd-pessoas">1</span>
+<button onclick="mudarPessoas(1)">+</button>
+</div>
+</div>
+<div class="config-item">
+<span class="config-label">📅 Data</span>
+<input type="date" id="data-passeio" class="data-input" onchange="definirData()">
+</div>
+<div class="config-resumo" id="config-resumo">
+<span class="total-label" id="total-label">Nenhum passeio selecionado</span>
+</div>
+</div>
+
 <div class="grid-passeios" id="gridPasseios"></div>
 </section>
+
+<!-- BARRA DE ORÇAMENTO -->
+<div class="orcamento-bar" id="orcamentoBar">
+<div class="resumo-info">
+<span class="resumo-item">📦 <strong id="total-itens">0</strong> passeios</span>
+<span class="resumo-item">👥 <strong id="total-pessoas">1</strong> pessoa(s)</span>
+<span class="resumo-item">💰 Total: <strong id="total-valor">R$ 0,00</strong></span>
+</div>
+<a id="btn-wa-orcamento" href="#" class="btn-whatsapp-orcamento" target="_blank">
+<svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Solicitar Orçamento
+</a>
+</div>
+
+<!-- WHATSAPP FLOAT (invisível quando orçamento ativo) -->
+<a id="btn-wa-float" href="https://wa.me/5598970141256" class="whatsapp-float" target="_blank">
+<svg class="icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Fale com um consultor
+</a>
 
 <section class="contato-section" id="contato">
 <h2>📬 Entre em Contato</h2>
@@ -139,11 +209,6 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}
 <div class="contato-item"><div class="icone">📍</div><p>Barreirinhas</p><small>MA - Brasil</small></div>
 </div>
 </section>
-
-<a href="https://wa.me/5598970141256" class="whatsapp-float" target="_blank">
-<svg class="icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-Fale com um consultor
-</a>
 
 <footer>© 2026 <strong>Diniz Turismo</strong> — Agência de Turismo em Barreirinhas, MA</footer>
 
@@ -163,9 +228,16 @@ var descs = ["Um dos mais populares roteiros de Barreirinhas, o Circuito da Lago
 var duracoes = ["4 horas","4 horas","7 horas","8 horas","7 horas","3 horas"];
 var precos = [150,120,200,550,150,110];
 var tipos = ["Por pessoa","Por pessoa","Por adulto","Por quadriciclo","Por adulto","Por adulto"];
+
+var pessoas = 1;
+var dataSelecionada = "";
+var selecionados = {};
+
+// Renderiza os cards
 var html = "";
 for(var i=0;i<nomes.length;i++){
-html += '<div class="card">';
+html += '<div class="card" id="card-' + i + '" onclick="togglePasseio(' + i + ')">';
+html += '<div class="check-overlay" id="check-' + i + '">✓</div>';
 html += '<div class="card-img" style="background-image:url(' + fotos[i] + ')"><span class="badge">Destaque</span></div>';
 html += '<div class="card-body">';
 html += '<h3>' + nomes[i] + '</h3>';
@@ -177,6 +249,91 @@ html += '<div class="preco">R$ ' + precos[i].toFixed(2).replace(".",",") + ' <sm
 html += '</div></div></div>';
 }
 document.getElementById("gridPasseios").innerHTML = html;
+
+function togglePasseio(id) {
+selecionados[id] = !selecionados[id];
+var card = document.getElementById("card-" + id);
+var check = document.getElementById("check-" + id);
+if(selecionados[id]) {
+card.classList.add("selecionado");
+check.textContent = "✓";
+check.style.background = "#0a9396";
+check.style.color = "#fff";
+} else {
+card.classList.remove("selecionado");
+check.textContent = "✓";
+check.style.background = "rgba(255,255,255,0.9)";
+check.style.color = "#6c757d";
+}
+atualizarResumo();
+}
+
+function mudarPessoas(n) {
+pessoas = Math.max(1, pessoas + n);
+document.getElementById("qtd-pessoas").textContent = pessoas;
+atualizarResumo();
+}
+
+function definirData() {
+dataSelecionada = document.getElementById("data-passeio").value;
+atualizarResumo();
+}
+
+function formatarData(d) {
+if(!d) return "A definir";
+var partes = d.split("-");
+return partes[2] + "/" + partes[1] + "/" + partes[0];
+}
+
+function atualizarResumo() {
+var total = 0;
+var count = 0;
+var msg = "Olá! Gostaria de solicitar um orçamento para os seguintes passeios:%0A%0A";
+msg += "📅 Data: " + formatarData(dataSelecionada) + "%0A";
+msg += "👥 Quantidade de pessoas: " + pessoas + "%0A%0A";
+msg += "Passeios selecionados:%0A";
+
+for(var i=0;i<nomes.length;i++) {
+if(selecionados[i]) {
+var valPorPessoa = precos[i];
+var valTotal = valPorPessoa * pessoas;
+total += valTotal;
+count++;
+msg += "✅ " + nomes[i] + " - R$ " + valPorPessoa.toFixed(2).replace(".",",") + "/pessoa (Total: R$ " + valTotal.toFixed(2).replace(".",",") + ")%0A";
+}
+}
+
+msg += "%0A💰 Valor total: R$ " + total.toFixed(2).replace(".",",") + "%0A%0A";
+msg += "Poderia me enviar mais informações sobre disponibilidade e formas de pagamento?";
+
+// Atualiza barra de orçamento
+var bar = document.getElementById("orcamentoBar");
+var btnWA = document.getElementById("btn-wa-orcamento");
+var btnFloat = document.getElementById("btn-wa-float");
+var totalItens = document.getElementById("total-itens");
+var totalValor = document.getElementById("total-valor");
+var totalPessoas = document.getElementById("total-pessoas");
+var configResumo = document.getElementById("config-resumo");
+
+totalItens.textContent = count;
+totalValor.textContent = "R$ " + total.toFixed(2).replace(".",",");
+totalPessoas.textContent = pessoas;
+
+if(count > 0) {
+bar.classList.add("visivel");
+btnWA.href = "https://wa.me/5598970141256?text=" + msg;
+btnWA.style.display = "inline-flex";
+btnFloat.style.display = "none";
+configResumo.innerHTML = '<span class="total-label">Total:</span><span class="total-valor">R$ ' + total.toFixed(2).replace(".",",") + '</span>';
+} else {
+bar.classList.remove("visivel");
+btnFloat.style.display = "flex";
+configResumo.innerHTML = '<span class="total-label">Nenhum passeio selecionado</span>';
+}
+}
+
+// Atualiza também o WhatsApp float com msg genérica quando nada selecionado
+atualizarResumo();
 </script>
 </body>
 </html>
