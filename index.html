@@ -40,17 +40,7 @@ nav a:hover{color:#0a9396}
 .section-header .count-badge{display:inline-block;background:rgba(10,147,150,0.08);color:#0a9396;padding:5px 18px;border-radius:20px;font-size:.78rem;font-weight:600;margin-bottom:12px;letter-spacing:.3px}
 .section-title{font-size:2rem;font-weight:800;color:#1a1a2e;margin-bottom:8px}
 .section-sub{color:#6c757d;font-size:.95rem}
-.config-bar{background:#fff;border-radius:14px;padding:20px 24px;margin-bottom:32px;box-shadow:0 2px 16px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04);display:flex;flex-wrap:wrap;align-items:center;gap:24px}
-.config-item{display:flex;align-items:center;gap:10px}
-.config-label{font-size:.8rem;font-weight:600;color:#495057;text-transform:uppercase;letter-spacing:.5px}
-.pessoas-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:10px;overflow:hidden}
-.pessoas-control button{width:36px;height:36px;border:none;background:#f8f9fa;font-size:1.1rem;font-weight:700;color:#0a9396;cursor:pointer;transition:background .2s}
-.pessoas-control button:hover{background:#e9ecef}
-.pessoas-control span{width:40px;text-align:center;font-weight:700;font-size:1rem;color:#1a1a2e}
-.config-resumo{margin-left:auto;display:flex;align-items:center;gap:12px}
-.config-resumo .total-label{font-size:.82rem;color:#6c757d}
-.config-resumo .total-valor{font-size:1.2rem;font-weight:800;color:#0a9396}
-.grid-passeios{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.grid-passeios{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
 .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:all .4s cubic-bezier(.25,.46,.45,.94);border:2px solid #f0f0f0;position:relative}
 .card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
 .card.selecionado{border-color:#0a9396;box-shadow:0 8px 32px rgba(10,147,150,0.12)}
@@ -79,6 +69,10 @@ nav a:hover{color:#0a9396}
 .periodo-btn.ativo{background:#0a9396;color:#fff}
 .periodo-btn:not(.ativo):hover{background:#e9ecef}
 .periodo-btn+.periodo-btn{border-left:1.5px solid #e0e0e0}
+.pessoas-card-control{display:flex;align-items:center;gap:0;border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden}
+.pessoas-card-control button{width:28px;height:28px;border:none;background:#fafafa;font-size:.85rem;font-weight:700;color:#0a9396;cursor:pointer;transition:background .15s;line-height:1}
+.pessoas-card-control button:hover{background:#e9ecef}
+.pessoas-card-control span{width:30px;text-align:center;font-weight:700;font-size:.78rem;color:#1a1a2e;line-height:28px}
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #f0f0f0}
 .card-footer .info{display:flex;align-items:center;gap:5px;font-size:.72rem;color:#6c757d}
 .card-footer .preco{font-size:1.05rem;font-weight:700;color:#0a9396}
@@ -89,7 +83,7 @@ nav a:hover{color:#0a9396}
 .btn-voltar:hover{background:rgba(10,147,150,0.06)}
 .detalhe-titulo-topo{font-size:1rem;font-weight:700;color:#1a1a2e}
 .detalhe-conteudo{max-width:1000px;margin:0 auto;padding:24px 5% 140px}
-.detalhe-hero{width:100%;height:420px;border-radius:16px;overflow:hidden;background-size:cover;background-position:center;position:relative;margin-bottom:28px}
+.detalhe-hero{width:100%;height:420px;border-radius:16px;overflow:hidden;background-size:cover;background-position:center;position:relative;margin-bottom:28px;cursor:pointer}
 .detalhe-hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:50%;background:linear-gradient(to top,rgba(0,0,0,0.3),transparent)}
 .detalhe-hero .badge-grande{position:absolute;bottom:20px;left:20px;z-index:2;background:#e9c46a;color:#1a1a2e;padding:6px 18px;border-radius:8px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
 .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
@@ -111,8 +105,6 @@ nav a:hover{color:#0a9396}
 .btn-select-detalhe{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:10px;font-weight:600;font-size:.88rem;border:1.5px solid #0a9396;background:rgba(10,147,150,0.06);color:#0a9396;cursor:pointer;transition:all .2s}
 .btn-select-detalhe.selecionado{background:#0a9396;color:#fff}
 .btn-select-detalhe:hover{background:#0a9396;color:#fff}
-
-/* LIGHTBOX */
 .lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:9999;display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
 .lightbox.ativo{display:flex;opacity:1}
 .lightbox-close{position:absolute;top:16px;right:16px;z-index:10000;width:44px;height:44px;background:rgba(255,255,255,0.12);border:none;border-radius:50%;color:#fff;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;backdrop-filter:blur(4px)}
@@ -124,7 +116,6 @@ nav a:hover{color:#0a9396}
 .lightbox-nav.anterior{left:12px}
 .lightbox-nav.proximo{right:12px}
 .lightbox-contador{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:.8rem;font-weight:500;background:rgba(0,0,0,0.4);padding:4px 14px;border-radius:20px;backdrop-filter:blur(4px)}
-
 .orcamento-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);z-index:998;padding:14px 5%;box-shadow:0 -4px 24px rgba(0,0,0,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(0,0,0,.04);transform:translateY(100%);transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
 .orcamento-bar.visivel{transform:translateY(0)}
 .orcamento-bar .resumo-info{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -146,7 +137,6 @@ footer{background:#001219;color:rgba(255,255,255,.6);text-align:center;padding:2
 footer strong{color:rgba(255,255,255,.8)}
 @media(max-width:768px){
 .hero h1{font-size:2.2rem}.hero p{font-size:.95rem}.hero{height:90vh;min-height:500px}
-.config-bar{flex-direction:column;align-items:stretch;gap:14px}.config-resumo{margin-left:0;justify-content:space-between}
 .grid-passeios{grid-template-columns:1fr}
 .card-actions-row{flex-direction:column;align-items:stretch}.periodo-control{align-self:flex-start}
 .detalhe-hero{height:240px}
@@ -200,18 +190,7 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}.btn-nav{padding:6px 1
 <div class="section-header">
 <div class="count-badge">✨ 6 passeios imperdíveis</div>
 <h2 class="section-title">Passeios em Barreirinhas</h2>
-<p class="section-sub">Clique em "Explorar" para ver detalhes completos de cada passeio</p>
-</div>
-<div class="config-bar">
-<div class="config-item">
-<span class="config-label">👥 Pessoas (grupo)</span>
-<div class="pessoas-control">
-<button onclick="mudarPessoas(-1)">−</button>
-<span id="qtd-pessoas">1</span>
-<button onclick="mudarPessoas(1)">+</button>
-</div>
-</div>
-<div class="config-resumo" id="config-resumo-home"><span class="total-label">Nenhum passeio selecionado</span></div>
+<p class="section-sub">Selecione os passeios, escolha data, período e quantas pessoas vão em cada um</p>
 </div>
 <div class="grid-passeios" id="gridPasseios"></div>
 </section>
@@ -236,7 +215,6 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}.btn-nav{padding:6px 1
 <div class="detalhe-conteudo" id="detalhe-conteudo"></div>
 </div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="fecharLightbox()">
 <button class="lightbox-close" onclick="event.stopPropagation();fecharLightbox()">✕</button>
 <button class="lightbox-nav anterior" id="lb-ant" onclick="event.stopPropagation();navegarLightbox(-1)">‹</button>
@@ -250,7 +228,7 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}.btn-nav{padding:6px 1
 <div class="orcamento-bar" id="orcamentoBar">
 <div class="resumo-info">
 <span class="resumo-item">📦 <strong id="total-itens">0</strong> passeios</span>
-<span class="resumo-item">👥 <strong id="total-pessoas">1</strong> pessoa(s)</span>
+<span class="resumo-item">👥 <strong id="total-pessoas">0</strong> pessoa(s)</span>
 <span class="resumo-item">💰 Total: <strong id="total-valor">R$ 0,00</strong></span>
 </div>
 <a id="btn-wa-orcamento" href="#" class="btn-whatsapp-orcamento" target="_blank">
@@ -303,16 +281,15 @@ var galeriaExtra = [
 [base + "cardosa2.jpg", base + "cardosa3.jpg", base + "cardosa4.jpg", base + "cardosa.jpg"]
 ];
 
-var pessoas = 1;
 var selecionados = {};
 var datas = {};
 var periodos = {};
+var pessoas = {};
 
 var amanha = new Date();
 amanha.setDate(amanha.getDate() + 1);
 var minDate = amanha.toISOString().split("T")[0];
 
-// Lightbox state
 var lbFotos = [];
 var lbAtual = 0;
 
@@ -335,7 +312,6 @@ renderizarDetalhe(id);
 window.scrollTo(0,0);
 }
 
-/* LIGHTBOX */
 function abrirLightbox(id, pos) {
 lbFotos = [fotos[id]].concat(galeriaExtra[id]);
 lbAtual = pos;
@@ -368,7 +344,6 @@ if(e.key === 'ArrowLeft') navegarLightbox(-1);
 if(e.key === 'ArrowRight') navegarLightbox(1);
 });
 
-// Touch support
 var lbTouchX = 0;
 document.getElementById('lightbox').addEventListener('touchstart', function(e) {
 lbTouchX = e.touches[0].clientX;
@@ -404,7 +379,12 @@ html += '<button class="periodo-btn ativo" id="periodo-manha-' + i + '" onclick=
 html += '<button class="periodo-btn" id="periodo-tarde-' + i + '" onclick="event.stopPropagation();setPeriodo(' + i + ',\'tarde\')">🌤 Tarde</button>';
 html += '</div>';
 }
-html += '</div></div>';
+html += '</div>';
+html += '<div class="card-actions-row">';
+html += '<span class="card-data-label" style="font-size:.68rem;font-weight:600;color:#495057;text-transform:uppercase;letter-spacing:.2px">👥 Pessoas</span>';
+html += '<div class="pessoas-card-control"><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',-1)">−</button><span id="pessoas-' + i + '">1</span><button onclick="event.stopPropagation();mudarPessoasCard(' + i + ',1)">+</button></div>';
+html += '</div>';
+html += '</div>';
 html += '<div class="card-footer">';
 html += '<div class="info">⏱ ' + duracoes[i] + '</div>';
 html += '<div class="preco">R$ ' + precos[i].toFixed(2).replace(".",",") + ' <small>' + tipos[i] + '</small></div>';
@@ -414,6 +394,7 @@ document.getElementById("gridPasseios").innerHTML = html;
 for(var i=0;i<nomes.length;i++){
 datas[i] = minDate;
 periodos[i] = "manha";
+pessoas[i] = 1;
 }
 }
 
@@ -426,10 +407,8 @@ periodoHtml = '<div class="periodo-control"><button class="periodo-btn ativo" id
 var selecionadoTexto = selecionados[id] ? "✅ Selecionado" : "☐ Selecionar";
 var selecionadoClass = selecionados[id] ? "btn-select-detalhe selecionado" : "btn-select-detalhe";
 
-var todasFotos = [fotos[id]].concat(galeriaExtra[id]);
-
 var html = '';
-html += '<div class="detalhe-hero" style="background-image:url(' + fotos[id] + ')" onclick="abrirLightbox(' + id + ',0)" style="cursor:pointer"><span class="badge-grande">' + nomes[id] + '</span></div>';
+html += '<div class="detalhe-hero" style="background-image:url(' + fotos[id] + ')" onclick="abrirLightbox(' + id + ',0)"><span class="badge-grande">' + nomes[id] + '</span></div>';
 html += '<div class="galeria">';
 for(var g=0;g<galeriaExtra[id].length;g++){
 html += '<div class="galeria-item" style="background-image:url(' + galeriaExtra[id][g] + ')" onclick="abrirLightbox(' + id + ',' + (g+1) + ')"></div>';
@@ -455,6 +434,10 @@ html += '<span class="action-label">⏰ Período</span>';
 html += periodoHtml;
 html += '</div>';
 }
+html += '<div class="action-group">';
+html += '<span class="action-label">👥 Pessoas</span>';
+html += '<div class="pessoas-card-control"><button onclick="detMudarPessoas(' + id + ',-1)">−</button><span id="det-pessoas">' + (pessoas[id]||1) + '</span><button onclick="detMudarPessoas(' + id + ',1)">+</button></div>';
+html += '</div>';
 html += '<button class="' + selecionadoClass + '" id="btn-det-select" onclick="detTogglePasseio(' + id + ')">' + selecionadoTexto + '</button>';
 html += '</div>';
 document.getElementById("detalhe-conteudo").innerHTML = html;
@@ -516,6 +499,18 @@ if(nomes[i] === titulo) return i;
 return 0;
 }
 
+function mudarPessoasCard(id, n) {
+pessoas[id] = Math.max(1, (pessoas[id]||1) + n);
+document.getElementById("pessoas-" + id).textContent = pessoas[id];
+atualizarResumo();
+}
+
+function detMudarPessoas(id, n) {
+pessoas[id] = Math.max(1, (pessoas[id]||1) + n);
+document.getElementById("det-pessoas").textContent = pessoas[id];
+atualizarResumo();
+}
+
 function atualizarData(id) {
 datas[id] = document.getElementById("data-" + id).value;
 atualizarResumo();
@@ -526,25 +521,22 @@ datas[id] = document.getElementById("det-data").value;
 atualizarResumo();
 }
 
-function mudarPessoas(n) {
-pessoas = Math.max(1, pessoas + n);
-document.getElementById("qtd-pessoas").textContent = pessoas;
-atualizarResumo();
-}
-
 function atualizarResumo() {
 var total = 0;
 var count = 0;
+var totalPessoasGeral = 0;
 var msg = "Olá! Gostaria de solicitar um orçamento para os seguintes passeios:%0A%0A";
-msg += "👥 Quantidade de pessoas: " + pessoas + "%0A%0A";
 msg += "Passeios selecionados:%0A";
+
 for(var i=0;i<nomes.length;i++) {
 if(selecionados[i]) {
+var qtd = pessoas[i] || 1;
 var dataStr = datas[i] || minDate;
 var valPorPessoa = precos[i];
-var valTotal = valPorPessoa * pessoas;
+var valTotal = valPorPessoa * qtd;
 total += valTotal;
 count++;
+totalPessoasGeral += qtd;
 var dataFormatada = formatarData(dataStr);
 var periodoStr = "";
 if(temPeriodo[i]) {
@@ -552,33 +544,36 @@ periodoStr = periodos[i] === "manha" ? " 🌅 Período: Manhã" : " 🌤 Períod
 }
 msg += (count) + ". " + nomes[i] + "%0A";
 msg += "   📅 Data: " + dataFormatada + periodoStr + "%0A";
+msg += "   👥 " + qtd + " pessoa(s)%0A";
 msg += "   💵 R$ " + valPorPessoa.toFixed(2).replace(".",",") + "/pessoa (Total: R$ " + valTotal.toFixed(2).replace(".",",") + ")%0A%0A";
 }
 }
-msg += "💰 Valor total (" + pessoas + " pessoa(s)): R$ " + total.toFixed(2).replace(".",",") + "%0A%0A";
+
+msg += "💰 Valor total: R$ " + total.toFixed(2).replace(".",",") + "%0A%0A";
 msg += "Poderia me enviar mais informações sobre disponibilidade e formas de pagamento?";
+
 var bar = document.getElementById("orcamentoBar");
 var btnWA = document.getElementById("btn-wa-orcamento");
 var btnFloat = document.getElementById("btn-wa-float");
 var totalItens = document.getElementById("total-itens");
 var totalValor = document.getElementById("total-valor");
-var totalPessoas = document.getElementById("total-pessoas");
-var configResumo = document.getElementById("config-resumo-home");
+var totalPessoasEl = document.getElementById("total-pessoas");
+
 totalItens.textContent = count;
 totalValor.textContent = "R$ " + total.toFixed(2).replace(".",",");
-totalPessoas.textContent = pessoas;
+totalPessoasEl.textContent = totalPessoasGeral;
+
 if(count > 0) {
 bar.classList.add("visivel");
 btnWA.href = "https://wa.me/5598970141256?text=" + msg;
 btnWA.style.display = "inline-flex";
 btnFloat.style.display = "none";
-configResumo.innerHTML = '<span class="total-label">Total:</span><span class="total-valor">R$ ' + total.toFixed(2).replace(".",",") + '</span>';
 } else {
 bar.classList.remove("visivel");
 btnFloat.style.display = "flex";
-configResumo.innerHTML = '<span class="total-label">Nenhum passeio selecionado</span>';
 }
 }
+
 renderizarHome();
 atualizarResumo();
 </script>
