@@ -9,12 +9,8 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#f8f9fa;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-
-/* PÁGINAS */
 .page{display:none;min-height:100vh}
 .page.ativa{display:block}
-
-/* HEADER */
 header{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);z-index:1000;padding:12px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.05)}
 .logo{display:flex;align-items:center;gap:10px}
 .logo-img{width:36px;height:36px;border-radius:8px;object-fit:cover;cursor:pointer}
@@ -26,8 +22,6 @@ nav a{margin-left:16px;font-weight:500;font-size:0.85rem;color:#495057;transitio
 nav a:hover{color:#0a9396}
 .btn-nav{background:#0a9396;color:#fff!important;padding:8px 18px;border-radius:8px;font-weight:600;font-size:0.85rem}
 .btn-nav:hover{background:#087d80!important}
-
-/* HERO HOME */
 .hero{width:100%;height:100vh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
 .hero-bg::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.7) 100%)}
@@ -42,8 +36,6 @@ nav a:hover{color:#0a9396}
 .btn-hero-primary:hover{background:#d4a843;transform:translateY(-2px);box-shadow:0 8px 24px rgba(233,196,106,0.3)}
 .btn-hero-secondary{background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(4px)}
 .btn-hero-secondary:hover{background:rgba(255,255,255,0.2);border-color:#e9c46a;color:#e9c46a;transform:translateY(-2px)}
-
-/* SEÇÃO PASSEIOS HOME */
 .passeios-section{padding:100px 5% 120px;max-width:1200px;margin:0 auto}
 .section-header{text-align:center;margin-bottom:36px}
 .section-header .count-badge{display:inline-block;background:rgba(10,147,150,0.08);color:#0a9396;padding:5px 18px;border-radius:20px;font-size:.78rem;font-weight:600;margin-bottom:12px;letter-spacing:.3px}
@@ -92,47 +84,32 @@ nav a:hover{color:#0a9396}
 .card-footer .info{display:flex;align-items:center;gap:5px;font-size:.72rem;color:#6c757d}
 .card-footer .preco{font-size:1.05rem;font-weight:700;color:#0a9396}
 .card-footer .preco small{font-weight:400;font-size:.62rem;color:#6c757d}
-
-/* ========== PÁGINA DE DETALHE ========== */
 .detalhe-topo{background:#fff;padding:80px 5% 20px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(0,0,0,.04)}
 .detalhe-topo-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .btn-voltar{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:#0a9396;cursor:pointer;padding:6px 14px;border-radius:8px;transition:all .2s}
 .btn-voltar:hover{background:rgba(10,147,150,0.06)}
 .detalhe-titulo-topo{font-size:1rem;font-weight:700;color:#1a1a2e}
-
 .detalhe-conteudo{max-width:1000px;margin:0 auto;padding:24px 5% 140px}
-
-/* Hero do detalhe */
 .detalhe-hero{width:100%;height:420px;border-radius:16px;overflow:hidden;background-size:cover;background-position:center;position:relative;margin-bottom:28px}
 .detalhe-hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:50%;background:linear-gradient(to top,rgba(0,0,0,0.3),transparent)}
 .detalhe-hero .badge-grande{position:absolute;bottom:20px;left:20px;z-index:2;background:#e9c46a;color:#1a1a2e;padding:6px 18px;border-radius:8px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-
-/* Galeria */
 .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
 .galeria-item{height:120px;border-radius:10px;background-size:cover;background-position:center;cursor:pointer;transition:all .3s}
 .galeria-item:hover{transform:scale(1.03);box-shadow:0 8px 24px rgba(0,0,0,.12)}
-
-/* Info do detalhe */
 .detalhe-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:24px}
 .detalhe-info-card{background:#fff;border-radius:12px;padding:16px 18px;border:1px solid #f0f0f0;text-align:center}
 .detalhe-info-card .icone{font-size:1.4rem;margin-bottom:6px}
 .detalhe-info-card .rotulo{font-size:.68rem;color:#6c757d;text-transform:uppercase;letter-spacing:.3px;font-weight:600}
 .detalhe-info-card .valor{font-size:1.05rem;font-weight:700;color:#1a1a2e;margin-top:2px}
-
-/* Descrição completa */
 .detalhe-descricao{background:#fff;border-radius:14px;padding:24px;border:1px solid #f0f0f0;margin-bottom:24px}
 .detalhe-descricao h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;color:#1a1a2e}
 .detalhe-descricao p{font-size:.88rem;color:#495057;line-height:1.7}
-
-/* Ações no detalhe */
 .detalhe-actions{background:#fff;border-radius:14px;padding:20px 24px;border:1px solid #f0f0f0;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
 .detalhe-actions .action-group{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .detalhe-actions .action-label{font-size:.72rem;font-weight:600;color:#6c757d;text-transform:uppercase;letter-spacing:.3px}
 .btn-select-detalhe{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:10px;font-weight:600;font-size:.88rem;border:1.5px solid #0a9396;background:rgba(10,147,150,0.06);color:#0a9396;cursor:pointer;transition:all .2s}
 .btn-select-detalhe.selecionado{background:#0a9396;color:#fff}
 .btn-select-detalhe:hover{background:#0a9396;color:#fff}
-
-/* ORÇAMENTO BAR */
 .orcamento-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);z-index:998;padding:14px 5%;box-shadow:0 -4px 24px rgba(0,0,0,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(0,0,0,.04);transform:translateY(100%);transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
 .orcamento-bar.visivel{transform:translateY(0)}
 .orcamento-bar .resumo-info{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -140,13 +117,9 @@ nav a:hover{color:#0a9396}
 .orcamento-bar .resumo-item strong{color:#0a9396;font-size:1rem}
 .btn-whatsapp-orcamento{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 28px;border-radius:10px;font-weight:600;font-size:.9rem;transition:all .3s;white-space:nowrap;text-decoration:none}
 .btn-whatsapp-orcamento:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3)}
-
-/* WHATSAPP FLOAT */
 .whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:12px 22px;border-radius:50px;font-weight:600;font-size:0.9rem;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all .3s;text-decoration:none}
 .whatsapp-float:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
 .whatsapp-float .icon{width:20px;height:20px}
-
-/* CONTATO */
 .contato-section{background:#fff;text-align:center;padding:60px 5% 100px;border-top:1px solid rgba(0,0,0,.03)}
 .contato-section h2{font-size:1.5rem;font-weight:800;margin-bottom:24px}
 .contato-grid{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:24px}
@@ -156,7 +129,6 @@ nav a:hover{color:#0a9396}
 .contato-item small{color:#6c757d;font-size:.78rem}
 footer{background:#001219;color:rgba(255,255,255,.6);text-align:center;padding:24px 5%;font-size:.78rem}
 footer strong{color:rgba(255,255,255,.8)}
-
 @media(max-width:768px){
 .hero h1{font-size:2.2rem}.hero p{font-size:.95rem}.hero{height:90vh;min-height:500px}
 .config-bar{flex-direction:column;align-items:stretch;gap:14px}.config-resumo{margin-left:0;justify-content:space-between}
@@ -181,7 +153,6 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}.btn-nav{padding:6px 1
 </head>
 <body>
 
-<!-- ============= HEADER ============= -->
 <header>
 <a href="#" class="logo" onclick="irParaHome()" style="cursor:pointer">
 <img src="https://raw.githubusercontent.com/DinizTurismo/Diniz_Turismo/main/Diniz_Turismo.jpg" alt="" class="logo-img" onerror="this.style.display='none'">
@@ -194,7 +165,6 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}.btn-nav{padding:6px 1
 </nav>
 </header>
 
-<!-- ============= PÁGINA HOME ============= -->
 <div class="page ativa" id="page-home">
 <section class="hero">
 <div class="hero-bg" style="background-image:url('https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T16-26-52-168Z_Original_user_intent_A_breathtaking_aerial_view_o.png')"></div>
@@ -239,7 +209,6 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}.btn-nav{padding:6px 1
 </section>
 </div>
 
-<!-- ============= PÁGINAS DE DETALHE ============= -->
 <div class="page" id="page-detalhe">
 <div class="detalhe-topo">
 <div class="detalhe-topo-inner">
@@ -247,11 +216,9 @@ nav a{margin-left:8px;font-size:.72rem;white-space:nowrap}.btn-nav{padding:6px 1
 <span class="detalhe-titulo-topo" id="detalhe-titulo-topo"></span>
 </div>
 </div>
-
 <div class="detalhe-conteudo" id="detalhe-conteudo"></div>
 </div>
 
-<!-- ============= BARRA DE ORÇAMENTO ============= -->
 <div class="orcamento-bar" id="orcamentoBar">
 <div class="resumo-info">
 <span class="resumo-item">📦 <strong id="total-itens">0</strong> passeios</span>
@@ -264,7 +231,6 @@ Solicitar Orçamento
 </a>
 </div>
 
-<!-- WHATSAPP FLOAT -->
 <a id="btn-wa-float" href="https://wa.me/5598970141256" class="whatsapp-float" target="_blank">
 <svg class="icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 Fale com um consultor
@@ -273,8 +239,8 @@ Fale com um consultor
 <footer>© 2026 <strong>Diniz Turismo</strong> — Agência de Turismo em Barreirinhas, MA</footer>
 
 <script>
-// ============= DADOS DOS PASSEIOS =============
 var base = "https://raw.githubusercontent.com/DinizTurismo/Diniz_Turismo/main/";
+
 var fotos = [
 base + "lagoa_bonita.png",
 base + "Lagoa_azul.jpg",
@@ -283,6 +249,7 @@ base + "quadriciclo.jpg",
 base + "cabure.jpg",
 base + "cardosa.jpg"
 ];
+
 var nomes = ["Circuito Lagoa Bonita","Circuito Lagoa Azul","Atins","Trilha de Quadriciclo","Circuito Caburé Rio Preguiças","Boia Cross Cardosa"];
 var locais = ["Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA","Barreirinhas, MA"];
 var descs_curtas = ["Um dos mais populares roteiros de Barreirinhas, o Circuito da Lagoa Bonita está entre os mais belos passeios dos Lençóis.","O passeio para os Grandes Lençóis é um dos mais populares da região, com paisagens paradisíacas.","Conheça esse paraíso natural, conhecido como a Jericoacoara Maranhense, porta de entrada do Parque Nacional.","Passeio repleto de aventura e emoção para quem busca explorar a região sobre rodas.","Passeio de lancha voadeira percorrendo o Rio Preguiças até a praia de Caburé.","Águas cristalinas cercado por buritizais, o povoado de Cardosa é uma das atrações naturais da região."];
@@ -298,16 +265,21 @@ var duracoes = ["4 horas","4 horas","7 horas","8 horas","7 horas","3 horas"];
 var precos = [150,120,200,550,150,110];
 var tipos = ["Por pessoa","Por pessoa","Por adulto","Por quadriciclo","Por adulto","Por adulto"];
 var temPeriodo = [true, true, false, false, false, false];
-var icones_info = ["⏱️","⏱️","🏖️","🤘","⛵","🛟"];
 
-// Galerias (fotos adicionais)
+/* === GALERIAS COM AS FOTOS DO SEU REPOSITÓRIO === */
 var galeriaExtra = [
-["https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T15-32-23-166Z_Original_user_intent_A_breathtaking_aerial_view_o.png","https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T16-43-54-300Z_Original_user_intent_A_breathtaking_aerial_view_o.png","https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=400&h=300&fit=crop"],
-["https://images.unsplash.com/photo-1587502536575-6dfba0a1e097?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&h=300&fit=crop","https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T16-43-54-300Z_Original_user_intent_A_breathtaking_aerial_view_o.png","https://images.unsplash.com/photo-1533659828870-95ee305cee5e?w=400&h=300&fit=crop"],
-["https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=400&h=300&fit=crop","https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T16-44-03-371Z_Original_user_intent_Aerial_view_of_Rio_Pregui_as.png"],
-["https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T16-44-11-188Z_Original_user_intent_Quadricycle_adventure_tour_r.png","https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1533659828870-95ee305cee5e?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1587502536575-6dfba0a1e097?w=400&h=300&fit=crop"],
-["https://generated-images.adapta.one/mauricio.diniz%40live.com/019f90c0-7df8-7178-ac6f-476033d5e5d3/2026-07-26T16-44-03-371Z_Original_user_intent_Aerial_view_of_Rio_Pregui_as.png","https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1598948485104-f1b4e4a9f7d7?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&h=300&fit=crop"],
-["https://images.unsplash.com/photo-1533659828870-95ee305cee5e?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1587502536575-6dfba0a1e097?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&h=300&fit=crop","https://images.unsplash.com/photo-1507608614956-f0d96e9e9b6a?w=400&h=300&fit=crop"]
+/* Lagoa Bonita */
+[base + "lagoa_bonita2.JPG", base + "lagoa_bonita3.png", base + "lagoa_bonita4.jpg", "https://raw.githubusercontent.com/DinizTurismo/Diniz_Turismo/main/lagoa_bonita.png"],
+/* Lagoa Azul */
+[base + "Lagoa_azul2.JPG", base + "Lagoa_azul3.jpg", base + "Lagoa_azul4.jpg", base + "Lagoa_azul5.jpg"],
+/* Atins */
+[base + "atins2.jpg", base + "atins3.jpg", base + "atins4.jpg", base + "atins5.jpg"],
+/* Quadriciclo */
+[base + "quadriciclo2.jpg", base + "quadriciclo3.jpg", base + "quadriciclo4.PNG", base + "quadriciclo5.PNG", base + "quadriciclo6.PNG", base + "quadriciclo7.PNG", base + "quadriciclo8.PNG"],
+/* Caburé */
+[base + "cabure2.jpg", base + "cabure3.jpg", base + "cabure4.jpg", base + "cabure5.jpg"],
+/* Cardosa */
+[base + "cardosa2.jpg", base + "cardosa3.jpg", base + "cardosa4.jpg", base + "cardosa.jpg"]
 ];
 
 var pessoas = 1;
@@ -325,7 +297,6 @@ var partes = d.split("-");
 return partes[2] + "/" + partes[1] + "/" + partes[0];
 }
 
-// ============= NAVEGAÇÃO ENTRE PÁGINAS =============
 function irParaHome() {
 document.querySelectorAll('.page').forEach(function(p){p.classList.remove('ativa')});
 document.getElementById('page-home').classList.add('ativa');
@@ -339,7 +310,6 @@ renderizarDetalhe(id);
 window.scrollTo(0,0);
 }
 
-// ============= RENDERIZAR HOME =============
 function renderizarHome() {
 var html = "";
 for(var i=0;i<nomes.length;i++){
@@ -371,45 +341,37 @@ html += '<div class="preco">R$ ' + precos[i].toFixed(2).replace(".",",") + ' <sm
 html += '</div></div></div>';
 }
 document.getElementById("gridPasseios").innerHTML = html;
-
 for(var i=0;i<nomes.length;i++){
 datas[i] = minDate;
 periodos[i] = "manha";
 }
 }
 
-// ============= RENDERIZAR DETALHE =============
 function renderizarDetalhe(id) {
 document.getElementById("detalhe-titulo-topo").textContent = nomes[id];
-
 var periodoHtml = "";
 if(temPeriodo[id]) {
 periodoHtml = '<div class="periodo-control"><button class="periodo-btn ativo" id="det-periodo-manha" onclick="detSetPeriodo(\'manha\')">🌅 Manhã</button><button class="periodo-btn" id="det-periodo-tarde" onclick="detSetPeriodo(\'tarde\')">🌤 Tarde</button></div>';
 }
-
 var selecionadoTexto = selecionados[id] ? "✅ Selecionado" : "☐ Selecionar";
 var selecionadoClass = selecionados[id] ? "btn-select-detalhe selecionado" : "btn-select-detalhe";
 
 var html = '';
 html += '<div class="detalhe-hero" style="background-image:url(' + fotos[id] + ')"><span class="badge-grande">' + nomes[id] + '</span></div>';
-
 html += '<div class="galeria">';
 for(var g=0;g<galeriaExtra[id].length;g++){
 html += '<div class="galeria-item" style="background-image:url(' + galeriaExtra[id][g] + ')" onclick="window.open(\'' + galeriaExtra[id][g] + '\')"></div>';
 }
 html += '</div>';
-
 html += '<div class="detalhe-info">';
 html += '<div class="detalhe-info-card"><div class="icone">⏱️</div><div class="rotulo">Duração</div><div class="valor">' + duracoes[id] + '</div></div>';
 html += '<div class="detalhe-info-card"><div class="icone">💰</div><div class="rotulo">Valor</div><div class="valor">R$ ' + precos[id].toFixed(2).replace(".",",") + '</div></div>';
 html += '<div class="detalhe-info-card"><div class="icone">👤</div><div class="rotulo">Tipo</div><div class="valor">' + tipos[id] + '</div></div>';
 html += '<div class="detalhe-info-card"><div class="icone">📍</div><div class="rotulo">Local</div><div class="valor">' + locais[id] + '</div></div>';
 html += '</div>';
-
 html += '<div class="detalhe-descricao">';
 html += '<h3>📖 Sobre o passeio</h3>';
 html += '<p>' + descs_longas[id] + '</p></div>';
-
 html += '<div class="detalhe-actions">';
 html += '<div class="action-group">';
 html += '<span class="action-label">📅 Data</span>';
@@ -423,11 +385,9 @@ html += '</div>';
 }
 html += '<button class="' + selecionadoClass + '" id="btn-det-select" onclick="detTogglePasseio(' + id + ')">' + selecionadoTexto + '</button>';
 html += '</div>';
-
 document.getElementById("detalhe-conteudo").innerHTML = html;
 }
 
-// ============= FUNÇÕES COMPARTILHADAS =============
 function togglePasseio(id) {
 selecionados[id] = !selecionados[id];
 atualizarUI(id);
@@ -454,10 +414,10 @@ if(!card) return;
 var texto = document.getElementById("btn-text-" + id);
 if(selecionados[id]) {
 card.classList.add("selecionado");
-texto.textContent = "Selecionado";
+if(texto) texto.textContent = "Selecionado";
 } else {
 card.classList.remove("selecionado");
-texto.textContent = "Selecionar";
+if(texto) texto.textContent = "Selecionar";
 }
 }
 
@@ -506,7 +466,6 @@ var count = 0;
 var msg = "Olá! Gostaria de solicitar um orçamento para os seguintes passeios:%0A%0A";
 msg += "👥 Quantidade de pessoas: " + pessoas + "%0A%0A";
 msg += "Passeios selecionados:%0A";
-
 for(var i=0;i<nomes.length;i++) {
 if(selecionados[i]) {
 var dataStr = datas[i] || minDate;
@@ -524,10 +483,8 @@ msg += "   📅 Data: " + dataFormatada + periodoStr + "%0A";
 msg += "   💵 R$ " + valPorPessoa.toFixed(2).replace(".",",") + "/pessoa (Total: R$ " + valTotal.toFixed(2).replace(".",",") + ")%0A%0A";
 }
 }
-
 msg += "💰 Valor total (" + pessoas + " pessoa(s)): R$ " + total.toFixed(2).replace(".",",") + "%0A%0A";
 msg += "Poderia me enviar mais informações sobre disponibilidade e formas de pagamento?";
-
 var bar = document.getElementById("orcamentoBar");
 var btnWA = document.getElementById("btn-wa-orcamento");
 var btnFloat = document.getElementById("btn-wa-float");
@@ -535,11 +492,9 @@ var totalItens = document.getElementById("total-itens");
 var totalValor = document.getElementById("total-valor");
 var totalPessoas = document.getElementById("total-pessoas");
 var configResumo = document.getElementById("config-resumo-home");
-
 totalItens.textContent = count;
 totalValor.textContent = "R$ " + total.toFixed(2).replace(".",",");
 totalPessoas.textContent = pessoas;
-
 if(count > 0) {
 bar.classList.add("visivel");
 btnWA.href = "https://wa.me/5598970141256?text=" + msg;
@@ -552,7 +507,6 @@ btnFloat.style.display = "flex";
 configResumo.innerHTML = '<span class="total-label">Nenhum passeio selecionado</span>';
 }
 }
-
 renderizarHome();
 atualizarResumo();
 </script>
