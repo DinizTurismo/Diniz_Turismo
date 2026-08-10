@@ -33,7 +33,7 @@ nav a:hover{color:#0a9396}
 .btn-hero-primary:hover{background:#d4a843;transform:translateY(-2px);box-shadow:0 8px 24px rgba(233,196,106,0.3)}
 .btn-hero-secondary{background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(4px)}
 .btn-hero-secondary:hover{background:rgba(255,255,255,0.2);border-color:#e9c46a;color:#e9c46a;transform:translateY(-2px)}
-.passeios-section{padding:80px 5% 120px;max-width:1200px;margin:0 auto}
+.passeios-section{padding:80px 5% 60px;max-width:1200px;margin:0 auto}
 .section-header{text-align:center;margin-bottom:28px}
 .section-header .count-badge{display:inline-block;background:rgba(10,147,150,0.08);color:#0a9396;padding:4px 16px;border-radius:20px;font-size:.75rem;font-weight:600;margin-bottom:10px;letter-spacing:.3px}
 .section-title{font-size:1.6rem;font-weight:800;color:#1a1a2e;margin-bottom:6px}
@@ -126,6 +126,36 @@ nav a:hover{color:#0a9396}
 .whatsapp-float{position:fixed;bottom:20px;right:16px;z-index:999;display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:10px 18px;border-radius:50px;font-weight:600;font-size:.82rem;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all .3s;text-decoration:none}
 .whatsapp-float:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
 .whatsapp-float .icon{width:18px;height:18px}
+/* MAPA */
+.mapa-section{background:#fff;padding:60px 5% 60px;border-top:1px solid rgba(0,0,0,.03)}
+.mapa-container{max-width:1000px;margin:0 auto;text-align:center}
+.mapa-container h2{font-size:1.4rem;font-weight:800;margin-bottom:8px;color:#1a1a2e}
+.mapa-container .mapa-sub{color:#6c757d;font-size:.88rem;margin-bottom:24px}
+.mapa-box{border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08);border:1px solid #f0f0f0}
+.mapa-box iframe{width:100%;height:420px;border:0;display:block}
+/* DEPOIMENTOS */
+.depoimentos-section{background:#f8f9fa;padding:60px 5% 90px}
+.depoimentos-container{max-width:1000px;margin:0 auto}
+.depoimentos-header{text-align:center;margin-bottom:28px}
+.depoimentos-header h2{font-size:1.4rem;font-weight:800;color:#1a1a2e;margin-bottom:8px}
+.depoimentos-header p{color:#6c757d;font-size:.88rem}
+.depoimentos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:28px}
+.depoimento-card{background:#fff;border-radius:14px;padding:20px;border:1px solid #f0f0f0;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.depoimento-card .estrelas{color:#e9c46a;font-size:.9rem;margin-bottom:8px;letter-spacing:2px}
+.depoimento-card .texto{font-size:.84rem;color:#495057;line-height:1.6;margin-bottom:12px;font-style:italic}
+.depoimento-card .autor{display:flex;align-items:center;gap:10px}
+.depoimento-card .avatar{width:38px;height:38px;border-radius:50%;background:rgba(10,147,150,0.12);display:flex;align-items:center;justify-content:center;font-weight:700;color:#0a9396;font-size:.9rem;flex-shrink:0}
+.depoimento-card .autor-info .nome{font-size:.8rem;font-weight:700;color:#1a1a2e}
+.depoimento-card .autor-info .cidade{font-size:.7rem;color:#6c757d}
+.depoimento-form{background:#fff;border-radius:14px;padding:24px;border:1px solid #f0f0f0;max-width:600px;margin:0 auto}
+.depoimento-form h3{font-size:1rem;font-weight:700;margin-bottom:16px;color:#1a1a2e;text-align:center}
+.depoimento-form .form-row{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.depoimento-form label{font-size:.72rem;font-weight:600;color:#495057;text-transform:uppercase;letter-spacing:.3px}
+.depoimento-form input,.depoimento-form textarea{border:1.5px solid #e0e0e0;border-radius:10px;padding:10px 12px;font-family:'Inter',sans-serif;font-size:.85rem;color:#1a1a2e;background:#fafafa;outline:none;transition:border .2s;width:100%}
+.depoimento-form input:focus,.depoimento-form textarea:focus{border-color:#0a9396;background:#fff}
+.depoimento-form textarea{resize:vertical;min-height:90px}
+.depoimento-form .btn-enviar-depoimento{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;padding:12px 24px;border-radius:10px;font-weight:600;font-size:.88rem;border:none;cursor:pointer;width:100%;font-family:'Inter',sans-serif;transition:all .3s}
+.depoimento-form .btn-enviar-depoimento:hover{background:#1da851;transform:translateY(-2px)}
 .contato-section{background:#fff;text-align:center;padding:50px 5% 90px;border-top:1px solid rgba(0,0,0,.03)}
 .contato-section h2{font-size:1.3rem;font-weight:800;margin-bottom:20px}
 .contato-grid{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:20px}
@@ -152,7 +182,7 @@ nav a{margin-left:22px;font-size:.88rem}
 .grid-passeios{grid-template-columns:1fr}
 .detalhe-hero{height:220px}
 .galeria{grid-template-columns:repeat(2,1fr)}.galeria-item{height:70px}
-.passeios-section{padding:60px 5% 140px}
+.passeios-section{padding:60px 5% 40px}
 .controls-row{flex-direction:column;align-items:stretch}
 .control-unit{flex-wrap:wrap}
 .date-input{max-width:100%}
@@ -160,6 +190,8 @@ nav a{margin-left:22px;font-size:.88rem}
 .orcamento-bar .resumo-info{justify-content:space-between;flex:1}
 .btn-whatsapp-orcamento{justify-content:center;width:100%}
 .whatsapp-float{bottom:76px;right:12px;padding:8px 14px;font-size:.76rem}
+.mapa-box iframe{height:300px}
+.depoimentos-section{padding:40px 5% 110px}
 .contato-section{padding:40px 5% 110px}
 .detalhe-actions .action-row{flex-direction:column;align-items:stretch}
 }
@@ -178,6 +210,8 @@ nav a{margin-left:6px;font-size:.68rem}
 </a>
 <nav>
 <a onclick="irParaHome()">Passeios</a>
+<a onclick="irParaHome();setTimeout(function(){document.getElementById('mapa').scrollIntoView({behavior:'smooth'})},100)">Mapa</a>
+<a onclick="irParaHome();setTimeout(function(){document.getElementById('depoimentos').scrollIntoView({behavior:'smooth'})},100)">Depoimentos</a>
 <a onclick="irParaHome();setTimeout(function(){document.getElementById('contato').scrollIntoView({behavior:'smooth'})},100)">Contato</a>
 </nav>
 </header>
@@ -203,6 +237,47 @@ nav a{margin-left:6px;font-size:.68rem}
 <p class="section-sub">Selecione os passeios, data, horário e quantas pessoas vão em cada um</p>
 </div>
 <div class="grid-passeios" id="gridPasseios"></div>
+</section>
+
+<!-- MAPA -->
+<section class="mapa-section" id="mapa">
+<div class="mapa-container">
+<h2>📍 Onde estamos</h2>
+<p class="mapa-sub">Barreirinhas, porta de entrada dos Lençóis Maranhenses</p>
+<div class="mapa-box">
+<iframe src="https://www.google.com/maps?q=Barreirinhas,+MA,+Brasil&z=12&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos-section" id="depoimentos">
+<div class="depoimentos-container">
+<div class="depoimentos-header">
+<h2>💬 Depoimentos de quem já viajou</h2>
+<p>Veja o que nossos clientes dizem sobre a experiência com a Diniz Turismo</p>
+</div>
+<div class="depoimentos-grid" id="depoimentosGrid"></div>
+<div class="depoimento-form">
+<h3>Deixe seu depoimento</h3>
+<div class="form-row">
+<label>Seu nome</label>
+<input type="text" id="dep-nome" placeholder="Digite seu nome">
+</div>
+<div class="form-row">
+<label>Sua cidade</label>
+<input type="text" id="dep-cidade" placeholder="Ex: São Luís, MA">
+</div>
+<div class="form-row">
+<label>Seu depoimento</label>
+<textarea id="dep-texto" placeholder="Conte como foi sua experiência com a Diniz Turismo..."></textarea>
+</div>
+<button class="btn-enviar-depoimento" onclick="enviarDepoimento()">
+<svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Enviar Depoimento
+</button>
+</div>
+</div>
 </section>
 
 <section class="contato-section" id="contato">
@@ -300,6 +375,46 @@ var minDate = amanha.toISOString().split("T")[0];
 
 var lbFotos = [];
 var lbAtual = 0;
+
+/* DEPOIMENTOS */
+var depoimentos = [
+{nome:"Maria Silva",cidade:"São Luís, MA",texto:"Experiência incrível! A equipe da Diniz Turismo foi super atenciosa e o passeio pela Lagoa Bonita foi inesquecível. Recomendo demais!",nota:5},
+{nome:"João Pereira",cidade:"Fortaleza, CE",texto:"Fizemos o circuito das lagoas com a família e foi perfeito. Guias muito experientes e estrutura de primeira. Voltaremos com certeza!",nota:5},
+{nome:"Ana Costa",cidade:"Brasília, DF",texto:"O passeio de quadriciclo foi a melhor parte da viagem! Aventura, segurança e paisagens de tirar o fôlego. Nota 10!",nota:5},
+{nome:"Carlos Souza",cidade:"Recife, PE",texto:"Atendimento impecável do início ao fim. O passeio em Atins superou todas as expectativas. Parabéns à equipe Diniz Turismo!",nota:5}
+];
+
+function renderizarDepoimentos() {
+var html = "";
+for(var i=0;i<depoimentos.length;i++){
+var d = depoimentos[i];
+var estrelas = "";
+for(var s=0;s<d.nota;s++){estrelas += "★";}
+html += '<div class="depoimento-card">';
+html += '<div class="estrelas">' + estrelas + '</div>';
+html += '<p class="texto">"' + d.texto + '"</p>';
+html += '<div class="autor">';
+html += '<div class="avatar">' + d.nome.charAt(0) + '</div>';
+html += '<div class="autor-info"><div class="nome">' + d.nome + '</div><div class="cidade">' + d.cidade + '</div></div>';
+html += '</div></div>';
+}
+document.getElementById("depoimentosGrid").innerHTML = html;
+}
+
+function enviarDepoimento() {
+var nome = document.getElementById("dep-nome").value.trim();
+var cidade = document.getElementById("dep-cidade").value.trim();
+var texto = document.getElementById("dep-texto").value.trim();
+if(!nome || !texto) {
+alert("Por favor, preencha seu nome e seu depoimento.");
+return;
+}
+var msg = "Olá! Gostaria de deixar um depoimento sobre a Diniz Turismo:%0A%0A";
+msg += "👤 Nome: " + nome + "%0A";
+msg += "📍 Cidade: " + (cidade || "Não informado") + "%0A";
+msg += "💬 Depoimento: " + texto;
+window.open("https://wa.me/5598970141256?text=" + msg, '_blank');
+}
 
 function formatarData(d) {
 if(!d) return "A definir";
@@ -588,6 +703,7 @@ btnFloat.style.display = "flex";
 }
 }
 renderizarHome();
+renderizarDepoimentos();
 atualizarResumo();
 </script>
 </body>
